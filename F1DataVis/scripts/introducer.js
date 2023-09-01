@@ -107,8 +107,8 @@ F1DataVis.introducer = function ( introGrp, logoStyles, visualizer ) {
                 'Championships are won at the factory."',
                 '- Mercedes( 2019 )'
             ];
-            F1DataVis.Texts.LeftIntro = ['Aalok Shashidhar Gokhale', '121872', 'aalok.shashidhar.gokhale@uni-weimar.de', 'Bauhaus-Universit‰t', 'Weimar'];
-            F1DataVis.Texts.RightIntro = ['Ankith Kodanda', '121983', 'ankith.kodanda@uni-weimar.de', 'Bauhaus-Universit‰t', 'Weimar'];
+            F1DataVis.Texts.LeftIntro = ['Aalok Shashidhar Gokhale', '121872', 'aalok.shashidhar.gokhale@uni-weimar.de', 'Bauhaus-Universit√§t', 'Weimar'];
+            F1DataVis.Texts.RightIntro = ['Ankith Kodanda', '121983', 'ankith.kodanda@uni-weimar.de', 'Bauhaus-Universit√§t', 'Weimar'];
         },
         _logoGradAnim2 = function () {
             d3.select( '#' + F1DataVis.IdStore.LogoNormal + "_1" )
