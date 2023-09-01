@@ -21,10 +21,16 @@ body {
     flex-direction: row;
     justify-content: center;
     gap: 2em;
+    @media (orientation: portrait) {
+        padding-bottom: 2em;
+        border-bottom: 2px dashed #c45911;
+    }
 }
 .bio {
-    border-right: 2px dashed #c45911;
     width: 100%;
+    @media (orientation: landscape) {
+        border-right: 2px dashed #c45911;
+    }
 }
 .desc {
     color: #616161;
@@ -71,10 +77,23 @@ a.link-in-text:hover {
     flex-direction: row;
     justify-content: center;
     gap: 2em;
+    @media (orientation: portrait) {
+        flex-direction: column;
+    }
 }
+
+
 .publication {
-    border-right: 2px dashed #c45911;
     width: 100%;
+
+    @media (orientation: landscape) {
+        border-right: 2px dashed #c45911;
+    }
+
+    @media (orientation: portrait) {
+        padding-bottom: 2em;
+        border-bottom: 2px dashed #c45911;
+    }
 }
 .publication-desc{
     padding-right: 0.5em;
