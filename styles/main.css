@@ -106,11 +106,11 @@
         font-family: Bahnschrift;
         color: #c45911;
         font-size: 1.0vw;
-        @media (width < 768px) {
+        @media screen and (width < 768px) {
             font-size: 3.8vw;
         }
-        @media (width <= 412px) {
-            font-size: 5.0vw;
+        @media screen and (width <= 576px) {
+            font-size: 5.3vw;
         }
     }
 
