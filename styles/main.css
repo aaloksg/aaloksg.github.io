@@ -1,5 +1,5 @@
 
-@media (orientation: landscape) {
+@media screen and (orientation: landscape) {
     body {
         background-color: #fbe4d5;
         font-family: Bahnschrift;
@@ -93,7 +93,7 @@
 }
 
 
-@media (orientation: portrait) {    
+@media screen and (orientation: portrait) {    
     html {
         font-family: sans-serif;
         scroll-snap-type: mandatory;
