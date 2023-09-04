@@ -93,8 +93,7 @@
 }
 
 
-@media (orientation: portrait) {
-    
+@media (orientation: portrait) {    
     html {
         font-family: sans-serif;
         scroll-snap-type: mandatory;
@@ -110,7 +109,7 @@
         @media (width < 768px) {
             font-size: 3.8vw;
         }
-        @media (width < 400px) {
+        @media (width <= 412px) {
             font-size: 5.0vw;
         }
     }
@@ -194,5 +193,24 @@
 
     .only-in-landscape {
         display:none;
+    }
+}
+
+.dot-container {
+    position: fixed;
+    top: 45%;
+    right: 1em;
+}
+
+.dot-div {
+    background-color: #c45911;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    opacity: 0.4;
+    &.active {
+        opacity: 1;
     }
 }
