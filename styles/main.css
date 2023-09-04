@@ -88,7 +88,7 @@
     }
 
     .only-in-portrait {
-        display:none;
+        display: none;
     }
 }
 
@@ -106,12 +106,6 @@
         font-family: Bahnschrift;
         color: #c45911;
         font-size: 1.0vw;
-        @media screen and (width < 768px) {
-            font-size: 3.8vw;
-        }
-        @media screen and (width <= 576px) {
-            font-size: 5.3vw;
-        }
     }
 
     .section {
@@ -133,7 +127,8 @@
     }
     .bio {
         width: 100%;
-        justify-content: space-around;
+        gap: 2em;
+        text-align: center;
     }
     .desc {
         color: #616161;
@@ -212,5 +207,17 @@
     opacity: 0.4;
     &.active {
         opacity: 1;
+    }
+}
+
+
+@media screen and (orientation: portrait) and (width < 768px) {
+    body {
+        font-size: 3.8vw;
+    }
+}
+@media screen and (orientation: portrait) and (width <= 576px) {
+    body {
+        font-size: 5.3vw;
     }
 }
