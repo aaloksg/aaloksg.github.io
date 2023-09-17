@@ -13,7 +13,32 @@ const INTERSECTION_OPTIONS = {
     if (!_sections?.length) {
         return;
     }
-    
+
+    const _setBioSectionHeight = () => {
+        const bioSection = document.getElementsByClassName('bio')[0];
+        if (!bioSection){
+            return;
+        }
+        bioSection.style.height = `${window.innerHeight}px`;
+    }
+
+    const _resetBioSectionHeight = () => {
+        const bioSection = document.getElementsByClassName('bio')[0];
+        if (!bioSection){
+            return;
+        }
+        bioSection.style.height = '';
+    }
+
+    const _onResize = () => {
+        if (window.innerHeight < window.innerWidth){
+            // Landscape mode.
+            _resetBioSectionHeight();
+            return;        
+        }
+        // Portrait mode.
+        _setBioSectionHeight();
+    };
 
     const _getDotTranslate = (dotIndex) => {
         return `translateY(${dotIndex * TRANSLATE_Y}em)`;
@@ -65,7 +90,13 @@ const INTERSECTION_OPTIONS = {
         }, INTERSECTION_OPTIONS).observe(section);
     }
     
-    dotContainer.appendChild(_activeDot);
+    dotContainer.appendChild(_activeDot);    
+
+    // Set the height of each section.
+    window.onresize = _onResize;
+    if (window.innerHeight > window.innerWidth){
+        _setBioSectionHeight();
+    }    
 
     _goToSection(0);
 })();

@@ -9,7 +9,7 @@
 
     .mainDiv {
         height: 100%;
-        padding: 2em 1em;
+        padding: 0 1em;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -95,9 +95,6 @@
 
 @media screen and (orientation: portrait) {    
     html {
-        font-family: sans-serif;
-        scroll-snap-type: mandatory;
-        scroll-snap-points-y: repeat(100vh);
         scroll-snap-type: y mandatory;
     }
 
@@ -110,7 +107,6 @@
 
     .section {
         border-bottom: 2px dashed #c45911;
-        padding-bottom: 2em;
         height: 100vh;
         scroll-snap-align: start;
         display: flex;
@@ -126,8 +122,9 @@
         width: 100%;
     }
     .bio {
+        margin: 2em 0;
         width: 100%;
-        gap: 2em;
+        justify-content: space-between;
         text-align: center;
     }
     .desc {
@@ -140,6 +137,16 @@
         justify-content: center;
         align-items: center;
         gap: 2em;
+    }
+    .bio-image-parent{
+        max-height: 200px;
+        height: 40vw;
+        padding-bottom: 2em;;
+    }
+    #bio-image {
+      max-height: 100%;
+      object-fit: cover;
+      vertical-align: bottom;
     }
     .links {
         display: flex;
@@ -216,8 +223,8 @@
         font-size: 3.8vw;
     }
 }
-@media screen and (orientation: portrait) and (width <= 576px) {
+@media screen and (orientation: portrait) and (width <= 480px) {
     body {
-        font-size: 5.3vw;
+        font-size: 4.5vw;
     }
 }
