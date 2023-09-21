@@ -1,3 +1,18 @@
+h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+}
+
+a.link-in-text {
+    color: #424242;
+    text-decoration: underline dotted #c45911;
+}
+
+a.link-in-text:hover {
+    text-decoration: underline #c45911;
+}
 
 @media screen and (orientation: landscape) {
     body {
@@ -5,10 +20,11 @@
         font-family: Bahnschrift;
         font-size: 1em;
         color: #c45911;
+        margin: 0;
     }
 
     .mainDiv {
-        height: 100%;
+        height: 100vh;
         padding: 0 1em;
         display: flex;
         flex-direction: column;
@@ -17,7 +33,6 @@
     }
 
     .intro {
-        height: 30%;
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -39,6 +54,10 @@
         align-items: center;
         gap: 2em;
     }
+    #bio-image-landscape {
+        height: 200px;
+    }
+
     .links {
         display: flex;
         flex-direction: column;
@@ -49,15 +68,6 @@
 
     a.anchor-icons {
         color: #424242;
-    }
-
-    a.link-in-text {
-        color: #424242;
-        text-decoration: none;
-    }
-
-    a.link-in-text:hover {
-        text-decoration: underline;
     }
 
     .icons {
@@ -94,23 +104,36 @@
 
 
 @media screen and (orientation: portrait) {    
-    html {
-        scroll-snap-type: y mandatory;
-    }
 
     body {
         background-color: #fbe4d5;
         font-family: Bahnschrift;
         color: #c45911;
         font-size: 1.0vw;
+        margin: 0;
+    }
+
+    .section-parent {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 2em;
+        -webkit-overflow-scrolling: touch;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        scroll-snap-type: x mandatory;
     }
 
     .section {
-        border-bottom: 2px dashed #c45911;
         height: 100vh;
+        width: 100vw;
         scroll-snap-align: start;
+        scroll-snap-type: mandatory;
         display: flex;
         flex-direction: column;
+        flex: 0 0 auto;
+        overflow-y: clip;
     }
 
     .mainDiv {
@@ -122,7 +145,6 @@
         width: 100%;
     }
     .bio {
-        margin: 2em 0;
         width: 100%;
         justify-content: space-between;
         text-align: center;
@@ -161,17 +183,12 @@
         color: #424242;
     }
 
-    a.link-in-text {
-        color: #424242;
-        text-decoration: none;
-    }
-
-    a.link-in-text:hover {
-        text-decoration: underline;
-    }
-
     .icons {
         cursor: pointer;
+        &.disabled {
+            cursor: default;
+            opacity: 0.4;
+        }
     }
     .icons:hover {
         color:#c45911;
@@ -199,10 +216,23 @@
     }
 }
 
-.dot-container {
+.scroll-controls {
     position: fixed;
-    top: 45%;
-    right: 1em;
+    bottom: 0.5em;
+    left: 0;
+    width: 100%;
+}
+
+.scroll-controls-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1em;
+}
+
+.dot-container {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
 }
 
 .dot-div {
@@ -211,7 +241,6 @@
     width: 10px;
     border-radius: 50%;
     cursor: pointer;
-    position: absolute;
     opacity: 0.4;
     &.active {
         opacity: 1;

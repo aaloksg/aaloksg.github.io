@@ -1,5 +1,4 @@
 const template = /*html*/`
-<div class="mainDiv">
 <div class="intro">
     <div class="bio section">
         <h1>Aalok Shashidhar Gokhale</h1>
@@ -25,7 +24,7 @@ const template = /*html*/`
                 <i class="icons fa fa-instagram" style="font-size:36px"></i>
             </a>
         </div>
-        <img src="./F1DataVis/images/introPhotoAlk.png" height="200" />
+        <img id="bio-image-landscape" src="./F1DataVis/images/introPhotoAlk.png" />
     </div>
 </div>
 <div class="publication-and-projects">
@@ -68,7 +67,6 @@ const template = /*html*/`
         </div>
     </div>
 
-</div>
 </div>`
 import { defineComponent } from 'vue'
 export default defineComponent({

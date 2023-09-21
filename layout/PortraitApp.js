@@ -1,7 +1,6 @@
 const template = /*html*/`
-<div class="mainDiv">
-<div class="intro">
-    <div class="bio section">
+<div class="section-parent">
+    <Section class="bio" :height="sectionHeight">
         <h1>Aalok Shashidhar Gokhale</h1>
         <p class="desc">
             <strong>Frontend Web Developer</strong> with a passion for Virtual Reality, Visualization, and JavaScript.
@@ -28,27 +27,27 @@ const template = /*html*/`
                 <img id="bio-image" src="./F1DataVis/images/introPhotoAlk.png"  />
             </div>
         </div>
-    </div>
-</div>
-<div class="publication-and-projects">
-    <div class="publication section">
+    </Section>
+    
+    <Section class="publication" :height="sectionHeight">
         <h2>Publication</h2>
         <div class="publication-desc">
-        <p class="desc">
-            <a class="link-in-text" title="https://doi.org/10.1109/TVCG.2023.3247114" href="https://doi.org/10.1109/TVCG.2023.3247114">
-                <strong>Gaining the High Ground: Teleportation to Mid-Air Targets in Immersive Virtual Environments</strong>
-            </a>
-        </p>
-        <p class="desc">
-            This work received an <a class="link-in-text" title="https://ieeevr.org/2023/awards/conference-awards/#conference-honorable" href="https://ieeevr.org/2023/awards/conference-awards/#conference-honorable"><i>Honourable Mention for the Best Paper</i></a> at the <a class="link-in-text" title="https://ieeevr.org/2023/awards/conference-awards/" href="https://ieeevr.org/2023/awards/conference-awards/"><i>IEEE VR 2023 Conference Awards</i></a>.
-        </p>
-        <p class="desc">                    
-            The body of work that went into my Master's thesis laid the foundation for this research paper.
-            I created <a class="link-in-text" title="https://www.youtube.com/playlist?list=PLWKagjo38Yl6N4rg7DZAn5rdys1O4ml-Y" href="https://www.youtube.com/playlist?list=PLWKagjo38Yl6N4rg7DZAn5rdys1O4ml-Y"><i>three novel mid-air jumping techniques</i></a>, and designed and conducted an exploratory study to evaluate and compare the techniques for various quality factors.
-        </p>
-    </div>
-    </div>
-    <div class="projects section">
+            <p class="desc">
+                <a class="link-in-text" title="https://doi.org/10.1109/TVCG.2023.3247114" href="https://doi.org/10.1109/TVCG.2023.3247114">
+                    <strong>Gaining the High Ground: Teleportation to Mid-Air Targets in Immersive Virtual Environments</strong>
+                </a>
+            </p>
+            <p class="desc">
+                This work received an <a class="link-in-text" title="https://ieeevr.org/2023/awards/conference-awards/#conference-honorable" href="https://ieeevr.org/2023/awards/conference-awards/#conference-honorable"><i>Honourable Mention for the Best Paper</i></a> at the <a class="link-in-text" title="https://ieeevr.org/2023/awards/conference-awards/" href="https://ieeevr.org/2023/awards/conference-awards/"><i>IEEE VR 2023 Conference Awards</i></a>.
+            </p>
+            <p class="desc">                    
+                The body of work that went into my Master's thesis laid the foundation for this research paper.
+                I created <a class="link-in-text" title="https://www.youtube.com/playlist?list=PLWKagjo38Yl6N4rg7DZAn5rdys1O4ml-Y" href="https://www.youtube.com/playlist?list=PLWKagjo38Yl6N4rg7DZAn5rdys1O4ml-Y"><i>three novel mid-air jumping techniques</i></a>, and designed and conducted an exploratory study to evaluate and compare the techniques for various quality factors.
+            </p>
+        </div>
+    </Section>
+    
+    <Section class="projects" :height="sectionHeight">
         <h2>Projects</h2>
         <div>
             <p class="desc">
@@ -68,14 +67,32 @@ const template = /*html*/`
                 to visualize the journeys of Formula1 teams in each season over the years, and the stories of F1 drivers in each grand prix.
             </p>
         </div>
-    </div>
-
+    </Section>
 </div>
-</div>`
-import { ref, defineComponent } from 'vue'
+<ScrollControls />
+
+`;
+import { ref, defineComponent, onMounted } from 'vue'
+import ScrollControls from './ScrollControls.js';
+import Section from './Section.js';
+
 export default defineComponent({
     name: 'PotraitApp',
-    setup() {
+    setup() {        
+        const sectionHeight = ref('100vh');
+        onMounted(() => {
+            sectionHeight.value = `${window.innerHeight}px`;
+            window.onresize = () => {
+                sectionHeight.value = `${window.innerHeight}px`;
+            }
+        });
+        return {
+            sectionHeight
+        }
+    },
+    components: {
+        Section,
+        ScrollControls,
     },
     template
 });

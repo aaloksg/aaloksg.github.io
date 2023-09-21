@@ -1,10 +1,10 @@
 const template = /*html*/`
 <div class="mainDiv">
-<PortraitApp class="only-in-portrait" />
-<LandscapeApp class="only-in-landscape" />
-<div>
+<PortraitApp v-if="isPortraitMode" />
+<LandscapeApp v-else />
+</div>
 `
-import { ref, defineComponent } from 'vue'
+import { computed, defineComponent, inject } from 'vue'
 import PortraitApp from './PortraitApp.js';
 import LandscapeApp from './LandscapeApp.js';
 export default defineComponent({
@@ -14,6 +14,10 @@ export default defineComponent({
         LandscapeApp
     },
     setup() {
+        const isPortraitMode = inject('isPortraitMode');
+        return {
+            isPortraitMode,
+        }
     },
     template
 });
