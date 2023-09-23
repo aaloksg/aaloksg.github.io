@@ -4,7 +4,7 @@ const template = /*html*/`
 <LandscapeApp v-else />
 </div>
 `
-import { computed, defineComponent, inject } from 'vue'
+import { defineComponent, inject } from 'vue'
 import PortraitApp from './PortraitApp.js';
 import LandscapeApp from './LandscapeApp.js';
 export default defineComponent({

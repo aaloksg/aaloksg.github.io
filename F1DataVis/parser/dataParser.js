@@ -4,7 +4,7 @@ var dataParser = function () {
         Papa.parse(file, {
             header: true,
             complete: function (results) {
-                console.log(results);
+                // console.log(results);
                 this.downloadJSON(results.data, file.name);
             }.bind(this),
             dynamicTyping: function ( headerName ) {

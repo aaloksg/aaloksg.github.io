@@ -74,7 +74,6 @@ export default defineComponent({
             for (let index = 0; index < length; index++) {
                 const section = sections.value[index];        
                 new IntersectionObserver(() => {
-                    console.log(`Setting active dot - ${index}`);
                     setActiveDot(index);
                 }, INTERSECTION_OPTIONS).observe(section);
             }

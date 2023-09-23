@@ -13,58 +13,108 @@ const template = /*html*/`
         </p>
         <div class="image">
             <div class="links">
-                <a class="anchor-icons" title="https://www.linkedin.com/in/aalok-gokhale-b2031560/" href="https://www.linkedin.com/in/aalok-gokhale-b2031560/">
+                <a class="anchor-icons" title="https://www.linkedin.com/in/aalok-gokhale-b2031560/" href="https://www.linkedin.com/in/aalok-gokhale-b2031560/" target="_blank">
                     <i class="icons fa fa-linkedin-square" style="font-size:36px"></i>
                 </a>
                 <a class="anchor-icons" title="mailto:aaloksg@gmail.com" href="mailto:aaloksg@gmail.com">
                     <i class="icons fa fa-envelope" style="font-size:32px"></i>
                 </a>
-                <a class="anchor-icons" title="https://instagram.com/aaloksg?igshid=ZGUzMzM3NWJiOQ==" href="https://instagram.com/aaloksg?igshid=ZGUzMzM3NWJiOQ==">
+                <a class="anchor-icons" title="https://instagram.com/aaloksg?igshid=ZGUzMzM3NWJiOQ==" href="https://instagram.com/aaloksg?igshid=ZGUzMzM3NWJiOQ==" target="_blank">
                     <i class="icons fa fa-instagram" style="font-size:36px"></i>
                 </a>
             </div>
-            <div class="bio-image-parent">
-                <img id="bio-image" src="./F1DataVis/images/introPhotoAlk.png"  />
+            <div class="image-parent">
+                <img id="bio-image" class="images-portrait" src="./F1DataVis/images/introPhotoAlk.png"  />
             </div>
         </div>
     </Section>
     
     <Section class="publication" :height="sectionHeight">
         <h2>Publication</h2>
-        <div class="publication-desc">
+        <p class="desc">
+            <a class="link-in-text" title="https://doi.org/10.1109/TVCG.2023.3247114" href="https://doi.org/10.1109/TVCG.2023.3247114" target="_blank">
+                <strong>Gaining the High Ground: Teleportation to Mid-Air Targets in Immersive Virtual Environments</strong>
+            </a>
+        </p>
+        <div class="desc-parent">
             <p class="desc">
-                <a class="link-in-text" title="https://doi.org/10.1109/TVCG.2023.3247114" href="https://doi.org/10.1109/TVCG.2023.3247114">
-                    <strong>Gaining the High Ground: Teleportation to Mid-Air Targets in Immersive Virtual Environments</strong>
-                </a>
-            </p>
-            <p class="desc">
-                This work received an <a class="link-in-text" title="https://ieeevr.org/2023/awards/conference-awards/#conference-honorable" href="https://ieeevr.org/2023/awards/conference-awards/#conference-honorable"><i>Honourable Mention for the Best Paper</i></a> at the <a class="link-in-text" title="https://ieeevr.org/2023/awards/conference-awards/" href="https://ieeevr.org/2023/awards/conference-awards/"><i>IEEE VR 2023 Conference Awards</i></a>.
+                This work received an <a class="link-in-text" title="https://ieeevr.org/2023/awards/conference-awards/#conference-honorable" href="https://ieeevr.org/2023/awards/conference-awards/#conference-honorable" target="_blank"><i>Honourable Mention for the Best Paper</i></a> at the <a class="link-in-text" title="https://ieeevr.org/2023/awards/conference-awards/" href="https://ieeevr.org/2023/awards/conference-awards/" target="_blank"><i>IEEE VR 2023 Conference Awards</i></a>.
             </p>
             <p class="desc">                    
                 The body of work that went into my Master's thesis laid the foundation for this research paper.
-                I created <a class="link-in-text" title="https://www.youtube.com/playlist?list=PLWKagjo38Yl6N4rg7DZAn5rdys1O4ml-Y" href="https://www.youtube.com/playlist?list=PLWKagjo38Yl6N4rg7DZAn5rdys1O4ml-Y"><i>three novel mid-air jumping techniques</i></a>, and designed and conducted an exploratory study to evaluate and compare the techniques for various quality factors.
+                I created <a class="link-in-text" title="https://www.youtube.com/playlist?list=PLWKagjo38Yl6N4rg7DZAn5rdys1O4ml-Y" href="https://www.youtube.com/playlist?list=PLWKagjo38Yl6N4rg7DZAn5rdys1O4ml-Y" target="_blank"><i>three novel mid-air jumping techniques</i></a>, and designed and conducted an exploratory study to evaluate and compare the techniques for various quality factors.
+            </p>
+            <ImageModaller image-src="./images/3DJumping.png" v-slot="{ onClick }"
+                caption="A still of the Anchor Ray technique in use" >
+                <div style="text-align: center">
+                    <img id="spirituality-poster" class="images-portrait" 
+                    style="width: 90vw"
+                        src="./images/3DJumping.png"  
+                        v-on:click="onClick"/>
+                </div>
+            </ImageModaller>
+        </div>
+    </Section>
+    
+    <Section class="projects" :height="sectionHeight">
+        <h2>Projects</h2> 
+        <p class="desc">
+            <strong>Mobile Information Visualization Project</strong>
+        </p>
+        <p class="desc">
+            In a team of four, I researched common mobile problems faced, designed a style-guide to combat said problems, and <a class="link-in-text" title="Download the app - https://moin.vrsys.org/MoInVisApp.apk" href="https://moin.vrsys.org/MoInVisApp.apk" target="_blank"><i>built an app</i></a> that displayed the amounts of different kinds of waste generated by European countries, using a parallel coordinates visualization. 
+            <a class="link-in-text" title="https://moin.vrsys.org/" href="https://moin.vrsys.org/" target="_blank"><i>Check it out with a mobile browser here!</i></a>
+        </p>
+        <p class="desc">
+            <strong>F1 Data Visualization with ParaCoords</strong>
+        </p>
+        <div class="desc-parent">
+            <ImageModaller image-src="./images/F1Viz.png" 
+                caption="A visualisation of the trajectory of the 2004 Monaco Grand Prix" 
+                v-slot="{ onClick }">
+                <div style="text-align: center">
+                    <img id="spirituality-poster" class="images-portrait" 
+                    style="width: 90vw"
+                        src="./images/F1Viz.png"  
+                        v-on:click="onClick"/>
+                </div>
+            </ImageModaller>
+            <p class="desc">
+                In a team of two, I created a <a class="link-in-text" title="./F1DataVis/index.html" href="./F1DataVis/index.html" target="_blank"><i>parallel coordinates visualization</i></a> 
+                to visualize the journeys of Formula1 teams in each season over the years, and the stories of F1 drivers in each grand prix.
             </p>
         </div>
     </Section>
     
     <Section class="projects" :height="sectionHeight">
         <h2>Projects</h2>
-        <div>
+        <ImageModaller image-src="./images/ModernTech-Spirituality-Poster.png" v-slot="{ onClick }"
+            caption="A poster summarising the study" 
+            >
+            <div style=" text-align: center">
+                <img id="spirituality-poster" class="images-portrait"
+                    style="width: 90vw"
+                    src="./images/ModernTech-Spirituality-Poster.png"  
+                    v-on:click="onClick"/>
+            </div>
+        </ImageModaller>
+        <p class="desc">
+            <strong>Technology in the Home – <i>Modern Technology and Spirituality</i></strong>
+        </p>
+        <div class="desc-parent">
             <p class="desc">
-                <strong>Mobile Information Visualization Project</strong>
+            In a team of 3, I used qualitative research methods to study how modern technology influences one’s 
+            spiritual practices in the home. 
             </p>
             <p class="desc">
-                In a team of four, I researched common mobile problems faced, designed a style-guide to combat said problems, and <a class="link-in-text" title="Download the app - https://moin.vrsys.org/MoInVisApp.apk" href="https://moin.vrsys.org/MoInVisApp.apk"><i>built an app</i></a> that displayed the amounts of different kinds of waste generated by European countries, using a parallel coordinates visualization. 
-                <a class="link-in-text" title="https://moin.vrsys.org/" href="https://moin.vrsys.org/"><i>Check it out with a mobile browser here!</i></a>
-            </p>
-        </div>
-        <div>                
-            <p class="desc">
-                <strong>F1 Data Visualization with ParaCoords</strong>
+            Technological improvements have impacted the way we do
+            everyday activities at home, including one's spiritual practices. We conducted ten semi-structured interviews
+            with Christian (Protestant and Catholic), Islamic, and Hindu participants from various age groups, with various levels of expertise in
+            technological use. 
             </p>
             <p class="desc">
-                In a team of two, I created a <a class="link-in-text" title="./F1DataVis/index.html" href="./F1DataVis/index.html"><i>parallel coordinates visualization</i></a> 
-                to visualize the journeys of Formula1 teams in each season over the years, and the stories of F1 drivers in each grand prix.
+            We collected in-depth information that can
+            guide future designs for spirituality-relevant applications.                
             </p>
         </div>
     </Section>
@@ -75,6 +125,7 @@ const template = /*html*/`
 import { ref, defineComponent, onMounted } from 'vue'
 import ScrollControls from './ScrollControls.js';
 import Section from './Section.js';
+import ImageModaller from './ImageModaller.js';
 
 export default defineComponent({
     name: 'PotraitApp',
@@ -93,6 +144,7 @@ export default defineComponent({
     components: {
         Section,
         ScrollControls,
+        ImageModaller,
     },
     template
 });
