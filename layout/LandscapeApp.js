@@ -98,12 +98,20 @@ const template = /*html*/`
                             <strong>Gaining the High Ground: Teleportation to Mid-Air Targets in Immersive Virtual Environments</strong>
                         </a>
                     </p>
+                    <ImageModaller class="landscape-image-parent" image-src="./images/SimultaneousTech.png" v-slot="{ onClick }"
+                    caption="A still of the Simultaneous technique in use" >
+                        <div style="text-align: center">
+                            <img class="landscape-images"
+                                src="./images/SimultaneousTech.png"  
+                                v-on:click="onClick"/>
+                        </div>
+                    </ImageModaller>
                     <p class="desc">
                         This work received an <a class="link-in-text" title="https://ieeevr.org/2023/awards/conference-awards/#conference-honorable" href="https://ieeevr.org/2023/awards/conference-awards/#conference-honorable" target="_blank"><i>Honourable Mention for the Best Paper</i></a> at the <a class="link-in-text" title="https://ieeevr.org/2023/awards/conference-awards/" href="https://ieeevr.org/2023/awards/conference-awards/" target="_blank"><i>IEEE VR 2023 Conference Awards</i></a>.
                     </p>       
                     <p class="desc">
                         The body of work that went into my Master's thesis laid the foundation for this research paper.
-                    </p>         
+                    </p>
                     <ImageModaller class="landscape-image-parent" image-src="./images/3DJumping.png" v-slot="{ onClick }"
                     caption="A still of the Anchor Ray technique in use" >
                         <div style="text-align: center">

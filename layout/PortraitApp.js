@@ -37,6 +37,15 @@ const template = /*html*/`
             </a>
         </p>
         <div class="desc-parent">
+            <ImageModaller image-src="./images/SimultaneousTech.png" v-slot="{ onClick }"
+                caption="A still of the Simultaneous technique in use" >
+                <div style="text-align: center">
+                    <img class="images-portrait" 
+                    style="width: 90vw"
+                        src="./images/SimultaneousTech.png"  
+                        v-on:click="onClick"/>
+                </div>
+            </ImageModaller>
             <p class="desc">
                 This work received an <a class="link-in-text" title="https://ieeevr.org/2023/awards/conference-awards/#conference-honorable" href="https://ieeevr.org/2023/awards/conference-awards/#conference-honorable" target="_blank"><i>Honourable Mention for the Best Paper</i></a> at the <a class="link-in-text" title="https://ieeevr.org/2023/awards/conference-awards/" href="https://ieeevr.org/2023/awards/conference-awards/" target="_blank"><i>IEEE VR 2023 Conference Awards</i></a>.
             </p>
