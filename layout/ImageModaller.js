@@ -1,15 +1,17 @@
 const template = /*html*/`
 <div>
-    <Teleport to="body">
+    <Teleport to="#modal-container">
         <div v-if="open" class="modal" v-on:click="open = false">
             <div class="modal-image-parent">
-                <img :src="imageSrc" class="modal-image"
+                <img ref="image" :src="imageSrc" class="modal-image"
                     :style="[ imageDimensionStyle,
                                 marginAdjustmentStyle,
                                 isRotated ? 'transform: rotate(90deg)' : '']"
-                    v-on:click.stop=""
+                    v-on:click.stop="showCaption = !showCaption"
                 />
-                <p class="caption"> {{caption}} </p>
+                <Transition>
+                    <p v-if="showCaption" class="caption in-modal" > {{caption}} </p>
+                </Transition>
                 <i v-if="isRotated" class="fa fa-rotate-left rotate-icons" 
                     style="font-size:1em"
                     v-on:click.stop="isRotated=false"></i>
@@ -24,7 +26,7 @@ const template = /*html*/`
     </div>
 </div>
 `;
-import { defineComponent, ref, inject, computed } from 'vue'
+import { defineComponent, ref, inject, computed, onMounted } from 'vue'
 
 const IMAGE_MARGINS = 20; // in px
 export default defineComponent({
@@ -41,6 +43,8 @@ export default defineComponent({
     },
     setup() {
         const isPortraitMode = inject('isPortraitMode');
+        const image = ref(null);
+        const showCaption = ref(true);
         const open = ref(false);
         const isRotated = ref(false);
         const windowHeight = ref(0);
@@ -54,25 +58,59 @@ export default defineComponent({
         const onClick = () => {
             setDimensions();
             open.value = true;
+            showCaption.value = true;
+            isRotated.value = false;
         };
         const imageDimensionStyle = computed(() => {
-            return (isPortraitMode.value && !isRotated.value) || 
-            (!isPortraitMode.value && isRotated.value) 
-            ? 'width:' + width.value + 'px' 
-            : 'height:' + height.value + 'px';
+            if ((isPortraitMode.value && !isRotated.value) || 
+            (!isPortraitMode.value && isRotated.value)) {
+                // returning width.
+                let widthToSet = width.value;
+                if (image.value) {
+                    const imageHeight = image.value.naturalHeight;
+                    const imageWidth = image.value.naturalWidth;
+                    const newHeight = imageHeight / imageWidth * widthToSet;
+                    if (newHeight > height.value) {
+                        widthToSet = imageWidth / imageHeight * height.value;
+                    }
+                }
+                return 'width:' + widthToSet + 'px';
+            } else {
+                // returning height
+                let heightToSet = height.value;
+                if (image.value) {
+                    const imageHeight = image.value.naturalHeight;
+                    const imageWidth = image.value.naturalWidth;
+                    const newWidth = imageWidth / imageHeight * heightToSet;
+                    if (newWidth > width.value) {
+                        heightToSet = imageHeight / imageWidth * width.value;
+                    }
+                }
+                return 'height:' + heightToSet + 'px';
+            }
         });
 
         const marginAdjustmentStyle = computed(() => {
             return isPortraitMode.value
             ? 'margin-top: -15%' 
-            : 'margin-left: -15%';
+            : '';
+        });
+
+        onMounted( () => {
+            window.addEventListener('keydown', (event) => {
+                if(event.key.toLowerCase() === 'escape' && open.value) {
+                    open.value = false;
+                }
+            });
         });
 
         return {
             onClick,
+            image,
             imageDimensionStyle,
             marginAdjustmentStyle,
             open,
+            showCaption,
             isPortraitMode,
             height,
             width,

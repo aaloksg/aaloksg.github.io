@@ -44,17 +44,23 @@ a.link-in-text:hover {
 
 .desc {
     color: #616161;
-}
-.desc-parent {
-    padding-bottom: 2em;
-    overflow-y: auto;
+    &.centered {
+        text-align: center;
+    }
 }
     
 .caption {
     text-align: center;
     color: #bcbcbc;
     font-size: 0.75em;
-    padding: 1em 2em;
+    padding: 1em;
+    border-radius: 1em;
+    &.in-modal {
+        position: fixed;
+        bottom:1em;
+        background-color: #00000082;
+        color: #fffefe;
+    }
 }
 
 body {
@@ -88,12 +94,10 @@ body {
     }
 
     .mainDiv {
-        height: 100vh;
         padding: 0 1em;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        gap: 2em;
     }
 
     .intro {
@@ -101,11 +105,18 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        gap: 2em;
+        border-bottom: 2px dashed #c45911;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
     }
     .bio {
         width: 100%;
         border-right: 2px dashed #c45911;
+        padding-right: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .image {
         width: 100%;
@@ -115,8 +126,11 @@ body {
         align-items: center;
         gap: 2em;
     }
-    #bio-image-landscape {
+    .landscape-images {
         height: 200px;
+    }
+    .landscape-image-parent {
+        padding: 1em 0;
     }
 
     .links {
@@ -138,21 +152,40 @@ body {
         color:#c45911;
     }    
 
-    .publication-and-projects {
-        width: 100%;
+    .section {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         gap: 2em;
+        align-items: center;
     }
 
+    .column-parent {
+        display: flex;
+        justify-content: center;
+        padding-top: 0.5em;
+    }
+
+    .column-left{
+        width: 100%;
+        border-right: 2px dashed #c45911;
+        padding-right: 1em;
+    }
+
+    .column-right{
+        width: 100%;
+    }
+
+    .column-right-content{
+        padding-left: 1em;
+    }
+
+    .desc-parent {
+        padding-bottom: 0.2em;
+    }
 
     .publication {
         width: 100%;
-        border-right: 2px dashed #c45911;
-    }
-    .publication-desc{
-        padding-right: 0.5em;
     }
     .projects {
         width: 100%;
@@ -199,6 +232,11 @@ body {
         flex-direction: column;
         flex: 0 0 auto;
         overflow-y: clip;
+    }
+
+    .desc-parent {
+        padding-bottom: 2em;
+        overflow-y: auto;
     }
 
     .mainDiv {
@@ -322,4 +360,16 @@ body {
     .caption {
         font-size: 3.5vw;
     }
+}
+
+/* Vue transitions */
+/* we will explain what these classes do next! */
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }

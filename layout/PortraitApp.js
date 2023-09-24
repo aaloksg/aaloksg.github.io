@@ -6,10 +6,10 @@ const template = /*html*/`
             <strong>Frontend Web Developer</strong> with a passion for Virtual Reality, Visualization, and JavaScript.
         </p>
         <p class="desc">
-            <strong>MSc</strong> in <strong>Human Computer Interaction</strong>, Bauhaus Universität, Weimar. 
+            <strong>MSc</strong> in <strong>Human Computer Interaction</strong>, Bauhaus Universität, Weimar, Germany. 
         </p>
         <p class="desc">
-            <strong>Bachelor of Engineering</strong> in <strong>Electronics and Communication Engineering</strong>, Visvesvaraya Technological University, India.
+            <strong>B.E.</strong> in <strong>Electronics and Communication Engineering</strong>, Visvesvaraya Technological University, India.
         </p>
         <div class="image">
             <div class="links">
@@ -47,7 +47,7 @@ const template = /*html*/`
             <ImageModaller image-src="./images/3DJumping.png" v-slot="{ onClick }"
                 caption="A still of the Anchor Ray technique in use" >
                 <div style="text-align: center">
-                    <img id="spirituality-poster" class="images-portrait" 
+                    <img class="images-portrait" 
                     style="width: 90vw"
                         src="./images/3DJumping.png"  
                         v-on:click="onClick"/>
@@ -73,7 +73,7 @@ const template = /*html*/`
                 caption="A visualisation of the trajectory of the 2004 Monaco Grand Prix" 
                 v-slot="{ onClick }">
                 <div style="text-align: center">
-                    <img id="spirituality-poster" class="images-portrait" 
+                    <img class="images-portrait" 
                     style="width: 90vw"
                         src="./images/F1Viz.png"  
                         v-on:click="onClick"/>
@@ -92,7 +92,7 @@ const template = /*html*/`
             caption="A poster summarising the study" 
             >
             <div style=" text-align: center">
-                <img id="spirituality-poster" class="images-portrait"
+                <img class="images-portrait"
                     style="width: 90vw"
                     src="./images/ModernTech-Spirituality-Poster.png"  
                     v-on:click="onClick"/>
