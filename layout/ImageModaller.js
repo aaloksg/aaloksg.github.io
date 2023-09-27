@@ -12,10 +12,13 @@ const template = /*html*/`
                 <Transition>
                     <p v-if="showCaption" class="caption in-modal" > {{caption}} </p>
                 </Transition>
-                <i v-if="isRotated" class="fa fa-rotate-left rotate-icons" 
+                <i class="fa fa-close modal-icons close"
+                    style="font-size:1em"
+                    v-on:click.stop="open=false"></i>
+                <i v-if="isRotated" class="fa fa-rotate-left modal-icons rotate" 
                     style="font-size:1em"
                     v-on:click.stop="isRotated=false"></i>
-                <i v-else class="fa fa-rotate-right rotate-icons"
+                <i v-else class="fa fa-rotate-right modal-icons rotate"
                     style="font-size:1em"
                     v-on:click.stop="isRotated=true"></i>
             </div>

@@ -24,7 +24,7 @@ const template = /*html*/`
                 </a>
             </div>
             <div class="image-parent">
-                <img id="bio-image" class="images-portrait" src="./F1DataVis/images/introPhotoAlk.png"  />
+                <img class="bio-image images-portrait" src="./images/bio-image.png"  />
             </div>
         </div>
     </Section>
