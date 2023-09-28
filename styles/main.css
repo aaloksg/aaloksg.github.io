@@ -216,6 +216,9 @@ body {
         .landscape-images {
             height: 300px;
         }
+        .landscape-image-parent {
+            align-self: center;
+        }
     }
 
     .publication {
