@@ -52,6 +52,7 @@ a.link-in-text:hover {
 
 .desc {
     color: #616161;
+    line-height: 1.5em;
     &.centered {
         text-align: center;
     }
@@ -145,17 +146,24 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        padding-top: 3em;
+        padding-top: 2em;
         padding-bottom: 0.5em;
+        gap: 2em;
     }
     .bio {
         width: 100%;
         padding-right: 1em;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
     }
+    .bio-desc {
+        font-size:larger;
+        align-self: start;
+        text-align: justify;
+    }
+    
     .image {
         width: 100%;
         display: flex;
@@ -200,6 +208,14 @@ body {
 
     .desc-parent {
         padding-bottom: 0.2em;
+    }
+
+    .desc-image-parent{
+        display: flex;
+        gap:2em;
+        .landscape-images {
+            height: 300px;
+        }
     }
 
     .publication {
@@ -270,6 +286,11 @@ body {
     .bio {
         justify-content: space-between;
         text-align: center;
+    }
+    .bio-desc {
+        font-size:large;
+        line-height: 1.5em;
+        text-align: justify;
     }
     .image {
         width: 100%;

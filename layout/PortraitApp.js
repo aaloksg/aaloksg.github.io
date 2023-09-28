@@ -2,6 +2,13 @@ const template = /*html*/`
 <div class="section-parent">
     <Section class="bio" :height="sectionHeight">
         <h1>Aalok Shashidhar Gokhale</h1>
+        <p class="desc bio-desc">
+            I am a web developer at <a class="link-in-text" title="https://www.rooom.com/" href="https://www.rooom.com/" target="_blank">Rooom</a> 
+            working on Frontend UI, and build 3D and virtual web experiences for the rooom 
+            <a class="link-in-text" title="https://www.rooom.com/rooom-spaces" href="https://www.rooom.com/rooom-spaces" target="_blank">Spaces</a>
+            and <a class="link-in-text" title="https://www.rooom.com/rooom-products" href="https://www.rooom.com/rooom-products" target="_blank">Products</a> team.
+            
+        </p>
         <p class="desc">
             <strong>Frontend Web Developer</strong> with a passion for Virtual Reality, Visualization, and JavaScript.
         </p>
@@ -47,11 +54,32 @@ const template = /*html*/`
                 </div>
             </ImageModaller>
             <p class="desc">
+                Three adaptations of the classic teleportation metaphor that enable the user to travel to mid-air targets are presented.
+                The three techniques differ in the extent to which elevation changes are integrated into the conventional target selection process.
+                Elevation can be specified either simultaneously, as a connected second step, or separately from horizontal movements.
+                From the results of a user study with 30 participants, initial design guidelines for mid-air navigation techniques were defined.
+            </p>
+            <p class="desc">
                 This work received an <a class="link-in-text" title="https://ieeevr.org/2023/awards/conference-awards/#conference-honorable" href="https://ieeevr.org/2023/awards/conference-awards/#conference-honorable" target="_blank"><i>Honourable Mention for the Best Paper</i></a> at the <a class="link-in-text" title="https://ieeevr.org/2023/awards/conference-awards/" href="https://ieeevr.org/2023/awards/conference-awards/" target="_blank"><i>IEEE VR 2023 Conference Awards</i></a>.
             </p>
-            <p class="desc">                    
-                The body of work that went into my Master's thesis laid the foundation for this research paper.
-                I created <a class="link-in-text" title="https://www.youtube.com/playlist?list=PLWKagjo38Yl6N4rg7DZAn5rdys1O4ml-Y" href="https://www.youtube.com/playlist?list=PLWKagjo38Yl6N4rg7DZAn5rdys1O4ml-Y" target="_blank"><i>three novel mid-air jumping techniques</i></a>, and designed and conducted an exploratory study to evaluate and compare the techniques for various quality factors.
+            <p class="desc">
+                The body of work that went into my Master's thesis - <strong>Mid-Air Jumping through Immersive Virtual Environments</strong>
+                laid the foundation for this research paper.
+            </p>
+            <p class="desc">
+                My thesis investigated how common jumping implementations can
+                be extended to integrate the specification of height as an additional degree of freedom in
+                target specification. Based on related research, I created 
+                <a class="link-in-text" title="https://www.youtube.com/playlist?list=PLWKagjo38Yl6N4rg7DZAn5rdys1O4ml-Y" href="https://www.youtube.com/playlist?list=PLWKagjo38Yl6N4rg7DZAn5rdys1O4ml-Y" target="_blank">
+                <i>three novel mid-air jumping techniques</i></a> to realize mid-air jumping – the Elevator Ray, 
+                the Anchor Ray and the Height Ray. 
+            </p>
+            <p class="desc">
+                An exploratory study was designed and conducted with 15 participants to evaluate and compare the three
+                techniques for various quality factors.
+                The results of the study indicated that all techniques performed adequately and successfully kept simulator
+                sickness and feelings of vertigo or fear of heights to a minimum, and encouraged the investigation of a combination of
+                the Anchor Ray and the Elevator Ray as a mid-air jumping technique.
             </p>
             <ImageModaller image-src="./images/3DJumping.png" v-slot="{ onClick }"
                 caption="A still of the Anchor Ray technique in use" >
