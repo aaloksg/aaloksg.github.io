@@ -10,12 +10,59 @@ export function Thread (svgParent, options) {
         _color = options.color,
         _endPoint = _startPoint.clone().add(_direction.clone().multiply(new Victor(_radius,_radius))),
         _svgElement,
+        STROKE_WIDTH = 2,
+
+        _exploding = false,
+        _explodingStrokeWidth = 0,
+        UPPER_STROKE_WIDTH = 25,
+        STROKE_WIDTH_DELTA = 1,
+        EXPLODE_ALPHA = 'BB',
+        _explodingStrokeColor = _color + EXPLODE_ALPHA,
+        _explodingSvg,
+        _explodingFrameId,
+
+    _explode = () => {
+        _explodingStrokeWidth += STROKE_WIDTH_DELTA;
+        _explodingSvg.setAttributeNS(null, 'stroke-width', _explodingStrokeWidth);
+        if (_explodingStrokeWidth <= UPPER_STROKE_WIDTH) {
+            _explodingFrameId = requestAnimationFrame(_explode);
+        } else {
+            _finishExplosion();
+        }
+    },
+    _createExplosion = () => {
+        _explodingStrokeWidth = STROKE_WIDTH;
+        _explodingStrokeColor = _color + EXPLODE_ALPHA,
+        _explodingSvg = document.createElementNS( 'http://www.w3.org/2000/svg', 'polyline' );
+        _explodingSvg.setAttributeNS(null, 'fill', 'none');
+        _explodingSvg.setAttributeNS(null, 'stroke-width', _explodingStrokeWidth);
+        _explodingSvg.setAttributeNS(null, 'stroke', _explodingStrokeColor);
+        _explodingSvg.setAttributeNS(null, 'cursor', 'auto');
+        _redraw();
+        _svgParent.insertBefore(_explodingSvg, options.insertBefore || _svgElement);
+    },
+    _finishExplosion = () => {
+        _exploding = false;
+        _svgParent.removeChild(_explodingSvg);
+        _explodingSvg = null;
+        cancelAnimationFrame(_explodingFrameId);
+        _explodingFrameId = undefined;
+    },
+    _startExplosion = () => {
+        if (_exploding) {
+            return;
+        }
+        _exploding = true;
+        _createExplosion();
+        _explodingFrameId = requestAnimationFrame(_explode);
+    },
 
     _initSvg = () => {
         _svgElement = document.createElementNS( 'http://www.w3.org/2000/svg', 'polyline' );
         _svgElement.setAttributeNS(null, 'fill', 'none');
-        _svgElement.setAttributeNS(null, 'stroke-width', 2);
+        _svgElement.setAttributeNS(null, 'stroke-width', STROKE_WIDTH);
         _svgElement.setAttributeNS(null, 'stroke', _color);
+        _svgElement.setAttributeNS(null, 'cursor', 'auto');
         _redraw();
         if (options.insertBefore) {
             _svgParent.insertBefore(_svgElement, options.insertBefore);
@@ -30,6 +77,7 @@ export function Thread (svgParent, options) {
 
     _redraw = () => {
         _svgElement.setAttributeNS(null, 'points', _getPoints());
+        _explodingSvg?.setAttributeNS(null, 'points', _getPoints());
     },
 
     _resize = (radius) => {
@@ -39,6 +87,10 @@ export function Thread (svgParent, options) {
     
     _cleanUp = () => {
         // Do clean up
+        if (_exploding) {
+            _finishExplosion();
+        }
+        _svgParent.removeChild(_svgElement);
         _svgElement = null;
         _svgParent = null;
     },
@@ -78,5 +130,6 @@ export function Thread (svgParent, options) {
         get svgElement () {
             return _svgElement;
         },
+        explode: _startExplosion,
     };
 };

@@ -50,6 +50,27 @@ a.link-in-text:hover {
     }
 }
 
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.gap-1 {
+    gap: 1em;
+}
+
+.volume-icon {
+    color:#c45911;
+    &:hover {
+        color:#ff8738;
+    }
+}
+
+a.anchor-icons {
+    color: #424242;
+}
+
 .desc {
     color: #616161;
     line-height: 1.5em;
@@ -185,10 +206,6 @@ body {
         justify-content: center;
         align-items: center;
         gap: 2em;
-    }
-
-    a.anchor-icons {
-        color: #424242;
     }
 
     .icons {
@@ -327,10 +344,6 @@ body {
         justify-content: center;
         align-items: center;
         gap: 1em;
-    }
-
-    a.anchor-icons {
-        color: #424242;
     }
 
     .icons {

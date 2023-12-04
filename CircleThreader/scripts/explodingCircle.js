@@ -9,9 +9,10 @@ export function ExplodingCircle (svgParent, position, color) {
         RADIUS = 10,
 
         _strokeWidth = 0,
-        UPPER_STROKE_WIDTH = 20,
+        UPPER_STROKE_WIDTH = 25,
         STROKE_WIDTH_DELTA = 1,
-        _strokeColor = color + 'AA',
+        EXPLODE_ALPHA = 'AA',
+        _strokeColor = color + EXPLODE_ALPHA,
 
     _initSvg = () => {
         _svgElement = document.createElementNS( 'http://www.w3.org/2000/svg', 'circle' );
@@ -20,6 +21,7 @@ export function ExplodingCircle (svgParent, position, color) {
         _svgElement.setAttributeNS(null, 'r', RADIUS);
         _svgElement.setAttributeNS(null, 'stroke-width', _strokeWidth);
         _svgElement.setAttributeNS(null, 'stroke', _strokeColor);
+        _svgElement.setAttributeNS(null, 'cursor', 'auto');
         _svgElement.style.fill = `${_color}`;
         _svgParent.appendChild(_svgElement);
     },

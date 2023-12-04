@@ -1,7 +1,13 @@
 const template = /*html*/`
-<i :class="[muted ? 'icons fa fa-volume-off' : 'icons fa fa-volume-up']"
-    style="font-size:36px"
-    @click.stop="toggleMute"></i>
+<div class="flex-row gap-1">
+    <h2>
+        Circle Threader
+    </h2>
+    <i  class="volume-icon" 
+        :class="[muted ? 'fa fa-volume-off' : 'fa fa-volume-up']"
+        style="font-size:36px"
+        @click.stop="toggleMute"></i>
+</div>
 <svg ref="svgElement" id="circle-threader-svg" width="100%" height="100%">
 </svg>
 `;

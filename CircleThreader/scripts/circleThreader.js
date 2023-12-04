@@ -47,9 +47,19 @@ export function CircleThreader (svg) {
         _centre.y =  _height / 2;
         _circle = new Circle(_svg, _centre, _radius);
         _circle.color = '#424242';
+        _circle.svgElement.setAttributeNS(null, 'cursor', 'auto');
         _bouncingCircle = new Circle(_svg, _centre, _radius - 10);
         _bouncingCircle.color = '#c45911';
         _svg.style.cursor = 'pointer';
+    },
+
+    _correctAngle = (vector) => {
+        if (Math.abs(vector.x) < 0.001) {
+            vector.x = 0;
+        }
+        if (Math.abs(vector.y) < 0.001) {
+            vector.y = 0;
+        }
     },
 
     _randomizeSpeed = () => {
@@ -119,13 +129,18 @@ export function CircleThreader (svg) {
         var length = newPosition.distance(_centre) + _bouncingCircle.radius;
         if (length >= _radius) {
             // Do bounce stuff
-            // Decrease bounce circle radius.
+            // Color change
+            _bouncingCircle.color = _getRandomColor();
+
             // direction to circle
-            var directionToCircle = _bouncingCircle.position.clone();
+            var directionToCircle = newPosition.clone();
             directionToCircle.subtract(_centre);
             directionToCircle.normalize();
             var distanceToCircle = directionToCircle.clone();
+
+            // Vary bounce circle radius.
             _varyBouncingCircleRadius();
+
             newPosition = _centre.clone();
             distanceToCircle.multiply(new Victor(_radius - _bouncingCircle.radius, _radius - _bouncingCircle.radius))
             newPosition.add(distanceToCircle);
@@ -143,6 +158,7 @@ export function CircleThreader (svg) {
                 }
             );
             _threads.push(thread);
+            thread.explode();
 
             // Explode circle
             new ExplodingCircle(_svg, thread.end, thread.color);
@@ -150,14 +166,12 @@ export function CircleThreader (svg) {
             // Play ding
             _audioManager.playRandomDing();
 
-            // Direction change
-            _bounceDirection.rotateDeg(Math.floor(Math.random() * (260 - 100) + 100));
+            // Direction change by random angle between 80 and 130 degrees.
+            _bounceDirection.rotateDeg(Math.floor(Math.random() * (40) + 80));
+            _correctAngle(_bounceDirection);
 
             // Speed change
             _randomizeSpeed();
-
-            // Color change
-            _bouncingCircle.color = _getRandomColor();
         }
         _bouncingCircle.position = newPosition;
         _threads.forEach((thread) => thread.redraw());
