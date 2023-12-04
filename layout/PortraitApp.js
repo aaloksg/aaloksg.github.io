@@ -183,6 +183,11 @@ const template = /*html*/`
             </p>
         </div>
     </Section>
+
+    <Section class="fun-stuff" :height="sectionHeight">
+        <h2>Projects for fun</h2>
+        <CircleThreader/>
+    </Section>
 </div>
 <ScrollControls />
 
@@ -191,6 +196,7 @@ import { ref, defineComponent, onMounted } from 'vue'
 import ScrollControls from './ScrollControls.js';
 import Section from './Section.js';
 import ImageModaller from './ImageModaller.js';
+import CircleThreader from './CircleThreader.js'
 
 export default defineComponent({
     name: 'PotraitApp',
@@ -210,6 +216,7 @@ export default defineComponent({
         Section,
         ScrollControls,
         ImageModaller,
+        CircleThreader,
     },
     template
 });

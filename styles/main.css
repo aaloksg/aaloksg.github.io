@@ -230,6 +230,13 @@ body {
         padding-top: 1em;
     }
 
+    .fun-stuff {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        height: 85vh;
+    }
+
     .only-in-portrait {
         display: none;
     }

@@ -9,6 +9,9 @@ const template = /*html*/`
     <div class="nav-item" @click="onNavigate('projects')" :class="[navIndex === 'projects' ? 'active' : '']">
         <p>Projects</p>
     </div>
+    <div class="nav-item" @click="onNavigate('fun-stuff')" :class="[navIndex === 'fun-stuff' ? 'active' : '']">
+        <p>Projects for fun</p>
+    </div>
 </div>
 <div class="content">
     <div v-if="navIndex === 'bio'" class="intro">
@@ -194,24 +197,20 @@ const template = /*html*/`
             </div>
         </div>
     </div>
-</div>
-<div class="column-parent">
-    <div class="column-left">
-        
-    </div>
-    <div class="column-right">
-        <div class="column-right-content">
-            
-        </div>
+    <div v-if="navIndex === 'fun-stuff'" class="fun-stuff">
+        <h2>Projects for fun</h2>
+        <CircleThreader/>
     </div>
 </div>
 `;
 import { defineComponent, ref } from 'vue'
 import ImageModaller from './ImageModaller.js';
+import CircleThreader from './CircleThreader.js';
 export default defineComponent({
     name: 'LandscapeApp',
     components: {
         ImageModaller,
+        CircleThreader,
     },
     setup() {
         // Nav-ids {
