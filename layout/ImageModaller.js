@@ -33,7 +33,7 @@ import { defineComponent, ref, inject, computed, onMounted } from 'vue'
 
 const IMAGE_MARGINS = 20; // in px
 export default defineComponent({
-    name: 'Modaller',
+    name: 'ImageModaller',
     props: {
         imageSrc: {
             type: String,

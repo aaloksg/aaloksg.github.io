@@ -53,6 +53,7 @@ export function CircleThreader (svg) {
         _bouncingCircle = new Circle(_svg, _centre, _radius - 10);
         _bouncingCircle.color = '#c45911';
         _svg.style.cursor = 'pointer';
+        _svg.style.touchAction = 'none';
         
         _initEvents();
     },
@@ -63,7 +64,7 @@ export function CircleThreader (svg) {
     },
 
     _bouncingCirclePointerDown = (evt) => {
-        evt.stopPropagation();
+        evt.preventDefault();
         if (_inProgress) {
             _pauseBounce();
         }
@@ -85,11 +86,13 @@ export function CircleThreader (svg) {
     },
 
     _bouncingCirclePointerUp = (evt) => {
-        evt.stopPropagation();
+        evt.preventDefault();
         _removeAuxillaryEvents();
     },
 
     _onPointerMove = (evt) => {
+        evt.preventDefault();
+        
         var deltaX = evt.clientX - _pointerCoords.x, deltaY = evt.clientY - _pointerCoords.y;
         
         _pointerCoords.x = evt.clientX;
@@ -148,6 +151,7 @@ export function CircleThreader (svg) {
         _centre.x =  _width / 2;
         _centre.y =  _height / 2;
         _circle.position = _centre;
+        _bouncingCircle.position = _centre;
         _calculateRadius();
 
         _threads.forEach((thread) => thread.resize(_radius))
