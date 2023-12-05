@@ -15,7 +15,7 @@ export function Thread (svgParent, options) {
         _exploding = false,
         _explodingStrokeWidth = 0,
         UPPER_STROKE_WIDTH = 25,
-        STROKE_WIDTH_DELTA = 1,
+        STROKE_WIDTH_DELTA = 0.5,
         EXPLODE_ALPHA = 'BB',
         _explodingStrokeColor = _color + EXPLODE_ALPHA,
         _explodingSvg,

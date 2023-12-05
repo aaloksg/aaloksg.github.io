@@ -10,7 +10,7 @@ export function ExplodingCircle (svgParent, position, color) {
 
         _strokeWidth = 0,
         UPPER_STROKE_WIDTH = 25,
-        STROKE_WIDTH_DELTA = 1,
+        STROKE_WIDTH_DELTA = 0.5,
         EXPLODE_ALPHA = 'AA',
         _strokeColor = color + EXPLODE_ALPHA,
 
