@@ -22,6 +22,8 @@ export function CircleThreader (svg) {
         _frameId,
         _pauseFrameId,
 
+        _pointerCoords = {},
+
         _radiusChangePolarity = -1,
         RADIUS_DELTA = 5,
         _lowerBound = 20,
@@ -51,6 +53,59 @@ export function CircleThreader (svg) {
         _bouncingCircle = new Circle(_svg, _centre, _radius - 10);
         _bouncingCircle.color = '#c45911';
         _svg.style.cursor = 'pointer';
+        
+        _initEvents();
+    },
+
+    _initEvents = () => {
+        // Init bouncing circle events
+        _bouncingCircle.svgElement.addEventListener('pointerdown', _bouncingCirclePointerDown);
+    },
+
+    _bouncingCirclePointerDown = (evt) => {
+        evt.stopPropagation();
+        if (_inProgress) {
+            _pauseBounce();
+        }
+        // Add pointer up
+        window.addEventListener('pointerup', _bouncingCirclePointerUp);
+        // Add pointer move.
+        window.addEventListener('pointermove', _onPointerMove);
+        // Add on blur event
+        window.addEventListener('blur', _bouncingCirclePointerUp);
+
+        _pointerCoords.x = evt.clientX;
+        _pointerCoords.y = evt.clientY;
+    },
+
+    _removeAuxillaryEvents = () => {
+        window.removeEventListener('pointerup', _bouncingCirclePointerUp);
+        window.removeEventListener('pointermove', _onPointerMove);
+        window.removeEventListener('blur', _bouncingCirclePointerUp);
+    },
+
+    _bouncingCirclePointerUp = (evt) => {
+        evt.stopPropagation();
+        _removeAuxillaryEvents();
+    },
+
+    _onPointerMove = (evt) => {
+        var deltaX = evt.clientX - _pointerCoords.x, deltaY = evt.clientY - _pointerCoords.y;
+        
+        _pointerCoords.x = evt.clientX;
+        _pointerCoords.y = evt.clientY;
+        
+        var newPosition = _bouncingCircle.position.clone().add(new Victor(deltaX, deltaY));
+        _bounceDirection.x = deltaX;
+        _bounceDirection.y = deltaY;
+        _bounceDirection.normalize();
+        
+        if (_setBouncingCirclePosition(newPosition)) {
+            _removeAuxillaryEvents();
+            if (!_inProgress) {
+                _startBounce();
+            }
+        }
     },
 
     _correctAngle = (vector) => {
@@ -111,23 +166,11 @@ export function CircleThreader (svg) {
             return;
         }
     },
-    
-    _bounceCirle = () => {
-        var now = Date.now(), timeElapsed = now - _lastFrameTime;
 
-        if (timeElapsed < _minFrameTime) {
-            _frameId = requestAnimationFrame(_bounceCirle);
-            return;
-        }
-        _lastFrameTime = now;
-
-        var distance = timeElapsed * _circleSpeed;
-        var newPosition = _bouncingCircle.position.clone();
-        var direction = _bounceDirection.clone();
-        direction.multiply(new Victor(distance, distance));
-        newPosition.add(direction);
-        var length = newPosition.distance(_centre) + _bouncingCircle.radius;
+    _setBouncingCirclePosition = (newPosition) => {
+        var length = newPosition.distance(_centre) + _bouncingCircle.radius, bounced = false;
         if (length >= _radius) {
+            bounced = true;
             // Do bounce stuff
             // Color change
             _bouncingCircle.color = _getRandomColor();
@@ -174,7 +217,29 @@ export function CircleThreader (svg) {
             _randomizeSpeed();
         }
         _bouncingCircle.position = newPosition;
+
         _threads.forEach((thread) => thread.redraw());
+
+        return bounced;
+    },
+    
+    _bounceCirle = () => {
+        var now = Date.now(), timeElapsed = now - _lastFrameTime;
+
+        if (timeElapsed < _minFrameTime) {
+            _frameId = requestAnimationFrame(_bounceCirle);
+            return;
+        }
+        _lastFrameTime = now;
+
+        var distance = timeElapsed * _circleSpeed;
+        var newPosition = _bouncingCircle.position.clone();
+        var direction = _bounceDirection.clone();
+        direction.multiply(new Victor(distance, distance));
+        newPosition.add(direction);
+
+        _setBouncingCirclePosition(newPosition);
+
         _frameId = requestAnimationFrame(_bounceCirle);
     },
 
@@ -215,6 +280,8 @@ export function CircleThreader (svg) {
     },
     
     _cleanUp = () => {
+        _bouncingCircle.svgElement.removeEventListener('pointerdown', _bouncingCirclePointerDown);
+        _removeAuxillaryEvents();
         cancelAnimationFrame(_frameId);
         cancelAnimationFrame(_pauseFrameId);
         _resizeObserver.disconnect();

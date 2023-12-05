@@ -34,16 +34,12 @@ export default defineComponent({
                 circleThreader.value = new CircleThreader(svgElement.value);
                 circleThreader.value.unmute();
 
-                svgElement.value.addEventListener('click', () => {
-                    circleThreader.value.toggle();
-                });
                 svgElement.value.addEventListener('dblclick', () => {
                     // Reset
                     circleThreader.value.stop();
                     circleThreader.value.cleanUp();
                     circleThreader.value = new CircleThreader(svgElement.value);
                 });
-
             }
         });
         
