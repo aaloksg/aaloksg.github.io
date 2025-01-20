@@ -1,48 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="minimal-ui width=device-width, initial-scale=1.0">
-    <title>Aalok's Work</title>
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-</head>
-<body>
-    <div id="app">
-    </div>
-
-    <script type="importmap">
-        {
-          "imports": {
-            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
-          }
-        }
-    </script>
-      
-      <script type="module">
-        import { createApp, ref, computed } from 'vue'
-        import App from './layout/App.js'
-
-        const isPortraitMode = ref(false);
-        const isLandscapeMode = computed(() => !isPortraitMode.value);
-
-        const setOrientation = (match) => {
-                isPortraitMode.value = match.matches;
-        };
-
-        const orientationMatcher = window.matchMedia(`screen and (orientation: portrait)`);
-        orientationMatcher.addListener(setOrientation);
-        setOrientation(orientationMatcher);
-
-        const app = createApp(App);
-
-        app.provide('isPortraitMode', isPortraitMode);
-
-        app.mount('#app');
-
-      </script>
-    <div id="modal-container" style="position:absolute;">
-    </div>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="minimal-ui width=device-width, initial-scale=1.0" />
+        <title>Aalok's Works</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <div id="modal-container" class="absolute"></div>
+        <script type="module" src="/src/main.ts"></script>
+    </body>
 </html>

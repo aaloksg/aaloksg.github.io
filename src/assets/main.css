@@ -1,0 +1,28 @@
+@import './base.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #fff;
+    font-family: Bahnschrift;
+    color: #c45911;
+    margin: 0;
+
+    /* Foreground, Background */
+    scrollbar-color: #c45911 #c4591166;
+    ::-webkit-scrollbar {
+        width: 0.2em; /* Mostly for vertical scrollbars */
+        height: 0.2em; /* Mostly for horizontal scrollbars */
+    }
+    ::-webkit-scrollbar-thumb {
+        /* Foreground */
+        background: #c4591153;
+        border-radius: 100px;
+    }
+    ::-webkit-scrollbar-track {
+        /* Background */
+        background: #c4591122;
+        border-radius: 100px;
+    }
+}

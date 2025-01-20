@@ -1,0 +1,15 @@
+# dependencies
+node_modules
+
+# production
+dist
+
+package-lock.json
+npm-debug.log
+yarn-error.log
+.yarnclean
+.vscode
+.vs
+.idea
+
+*.tsbuildinfo
