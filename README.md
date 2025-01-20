@@ -1,3 +1,3 @@
 # aaloksg.github.io
 
-## Holds some og my work :)
+## Holds some of my work :)
