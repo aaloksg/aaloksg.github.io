@@ -12,15 +12,9 @@
                 <div class="flex flex-col gap-4 sm:flex-row-reverse">
                     <ImageModaller
                         image-src="src/assets/images/MoInViz-Waste-Paracoords.png"
-                        v-slot="{ onClick }"
+                        center-vertically
                         caption="Visualizing waste generation with Parallel Coordinates on mobile devices"
-                    >
-                        <img
-                            class="w-90vw align-center h-auto max-h-full cursor-pointer self-center object-cover text-center sm:h-64 sm:w-auto sm:grow"
-                            src="../../assets/images/MoInViz-Waste-Paracoords.png"
-                            v-on:click="onClick"
-                        />
-                    </ImageModaller>
+                    />
 
                     <div class="flex flex-col gap-4 text-justify">
                         <TextChain :texts="moInVizPara1" class="text-lg sm:text-base" />
@@ -46,15 +40,9 @@
                 <div class="flex flex-col gap-4 sm:flex-row">
                     <ImageModaller
                         image-src="src/assets/images/F1Viz.png"
-                        v-slot="{ onClick }"
+                        center-vertically
                         caption="A visualisation of the trajectory of the 2004 Monaco Grand Prix"
-                    >
-                        <img
-                            class="w-90vw h-auto max-h-full cursor-pointer self-center object-cover text-center align-bottom sm:h-64 sm:w-auto sm:grow"
-                            src="../../assets/images/F1Viz.png"
-                            v-on:click="onClick"
-                        />
-                    </ImageModaller>
+                    />
                     <div class="flex flex-col gap-4 text-justify">
                         <TextChain :texts="dataVizPara" class="text-lg sm:text-base" />
                     </div>
@@ -74,15 +62,8 @@
                 <div class="flex flex-col gap-4 sm:flex-row-reverse">
                     <ImageModaller
                         image-src="src/assets/images/ModernTech-Spirituality-Poster.png"
-                        v-slot="{ onClick }"
                         caption="A poster summarising the study"
-                    >
-                        <img
-                            class="w-90vw h-auto max-h-full cursor-pointer object-cover text-center align-bottom sm:h-64 sm:w-auto sm:grow"
-                            src="../../assets/images/ModernTech-Spirituality-Poster.png"
-                            v-on:click="onClick"
-                        />
-                    </ImageModaller>
+                    />
 
                     <div class="flex flex-col gap-4">
                         <TextChain :texts="techInHomePara" class="text-lg sm:text-base" />
@@ -94,11 +75,13 @@
 </template>
 
 <script setup lang="ts">
-import TextChain, { type TextChainPart } from '../../components/TextChain.vue';
+import TextChain, { type TextChainPart } from '@/components/TextChain.vue';
 import ImageModaller from '@/components/ImageModaller.vue';
-import SectionLayout from './SectionLayout.vue';
+import SectionLayout from './layout/SectionLayout.vue';
 import { computed, ref, type Ref } from 'vue';
 import { useElementVisibility } from '@vueuse/core';
+
+import useGetPath from '@/composables/useGetPath';
 
 defineOptions({
     name: 'PublicationsSection',
@@ -110,6 +93,8 @@ type ItemInView = {
     elementRef: Ref<HTMLElement | undefined>;
     visibility: Ref<boolean>;
 };
+
+const { getPath } = useGetPath();
 
 const moInVizBody = ref<HTMLElement>();
 const dataVizBody = ref<HTMLElement>();
@@ -219,7 +204,7 @@ const dataVizPara: TextChainPart[] = [
     },
     {
         text: 'interactive parallel coordinates visualization',
-        link: 'projects/F1DataVis/index.html',
+        link: getPath('projects/F1DataVis/index.html'),
         bold: false,
         italic: true,
     },

@@ -1,4 +1,10 @@
 <template>
+    <img
+        class="h-auto max-h-full w-90vw cursor-pointer rounded-md object-cover text-center align-bottom sm:h-64 sm:w-auto"
+        :class="{ 'self-center': centerVertically }"
+        :src="src"
+        @click.stop="onClick"
+    />
     <Teleport to="#modal-container">
         <div
             v-if="open"
@@ -8,12 +14,13 @@
             <div class="flex h-full w-full flex-col items-center justify-center">
                 <img
                     ref="imageRef"
-                    :src="imageSrc"
+                    :src="src"
                     :style="[
                         imageDimensionStyle,
                         marginAdjustmentStyle,
                         isRotated ? 'transform: rotate(90deg)' : '',
                     ]"
+                    class="rounded-md"
                     v-on:click.stop="showCaption = !showCaption"
                 />
                 <Transition>
@@ -42,7 +49,6 @@
             </div>
         </div>
     </Teleport>
-    <slot v-if="!open" :onClick="onClick" />
 </template>
 
 <script setup lang="ts">
@@ -53,6 +59,7 @@ import CloseIcon from '@material-symbols/svg-600/rounded/close.svg';
 import RotateLeftIcon from '@material-symbols/svg-600/rounded/rotate_left.svg';
 import RotateRightIcon from '@material-symbols/svg-600/rounded/rotate_right.svg';
 import MDIcon from './icons/MDIcon.vue';
+import useGetPath from '@/composables/useGetPath';
 
 const IMAGE_MARGINS = 20; // in px
 defineOptions({
@@ -62,11 +69,17 @@ defineOptions({
 type ImageModallerProps = {
     imageSrc: string;
     caption?: string;
+    centerVertically?: boolean;
 };
 
-withDefaults(defineProps<ImageModallerProps>(), {
+const props = withDefaults(defineProps<ImageModallerProps>(), {
     caption: '',
 });
+
+const { getPath } = useGetPath();
+
+const src = computed(() => getPath(props.imageSrc));
+
 const { orientation } = useScreenOrientation();
 const isPortraitMode = computed(
     () =>

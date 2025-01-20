@@ -5,9 +5,9 @@
 </template>
 
 <script setup lang="ts">
-import SectionLayout from './SectionLayout.vue';
+import SectionLayout from './layout/SectionLayout.vue';
 
-import CircleThreader from '../../../projects/CircleThreader/CircleThreader.vue';
+import CircleThreader from '../../projects/CircleThreader/CircleThreader.vue';
 
 defineOptions({
     name: 'FunProjects',

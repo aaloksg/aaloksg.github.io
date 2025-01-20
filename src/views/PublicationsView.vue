@@ -8,15 +8,8 @@
             >
                 <ImageModaller
                     image-src="src/assets/images/SimultaneousTech.png"
-                    v-slot="{ onClick }"
                     caption="A still of the Simultaneous technique in use"
-                >
-                    <img
-                        class="w-90vw h-auto max-h-full cursor-pointer object-cover text-center align-bottom sm:h-64 sm:w-auto sm:grow"
-                        src="../../assets/images/SimultaneousTech.png"
-                        v-on:click="onClick"
-                    />
-                </ImageModaller>
+                />
                 <div class="flex shrink flex-col gap-4">
                     <TextChain
                         v-for="(para, index) in paras"
@@ -30,15 +23,8 @@
             <div class="flex w-full flex-col gap-4 sm:flex-row sm:items-start sm:pr-4 sm:pt-2">
                 <ImageModaller
                     image-src="src/assets/images/3DJumping.png"
-                    v-slot="{ onClick }"
                     caption="A still of the Anchor Ray technique in use"
-                >
-                    <img
-                        class="w-90vw h-auto max-h-full cursor-pointer object-cover text-center align-bottom sm:h-64 sm:w-auto"
-                        src="@/assets/images/3DJumping.png"
-                        v-on:click="onClick"
-                    />
-                </ImageModaller>
+                />
                 <div class="flex shrink flex-col gap-4">
                     <TextChain
                         v-for="(para, index) in paras2"
@@ -53,9 +39,9 @@
 </template>
 
 <script setup lang="ts">
-import TextChain, { type TextChainPart } from '../../components/TextChain.vue';
+import TextChain, { type TextChainPart } from '@/components/TextChain.vue';
 import ImageModaller from '@/components/ImageModaller.vue';
-import SectionLayout from './SectionLayout.vue';
+import SectionLayout from './layout/SectionLayout.vue';
 
 defineOptions({
     name: 'PublicationsSection',

@@ -83,7 +83,7 @@ const navMenuButtons = [
     },
     {
         text: 'Projects',
-        path: '/projects',
+        path: '/my-projects',
     },
     {
         text: 'Projects for fun',

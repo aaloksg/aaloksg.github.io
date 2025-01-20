@@ -17,15 +17,15 @@ const router = createRouter({
             // route level code-splitting
             // this generates a separate chunk (About.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
-            component: () => import('@/views/layout/PublicationsSection.vue'),
+            component: () => import('@/views/PublicationsView.vue'),
         },
         {
-            path: '/projects',
-            name: 'projects',
+            path: '/my-projects',
+            name: 'my-projects',
             // route level code-splitting
             // this generates a separate chunk (About.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
-            component: () => import('@/views/layout/ProjectsSection.vue'),
+            component: () => import('@/views/ProjectsView.vue'),
         },
         {
             path: '/fun-projects',
@@ -33,7 +33,7 @@ const router = createRouter({
             // route level code-splitting
             // this generates a separate chunk (About.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
-            component: () => import('@/views/layout/FunProjects.vue'),
+            component: () => import('@/views/FunProjects.vue'),
         },
     ],
 });
