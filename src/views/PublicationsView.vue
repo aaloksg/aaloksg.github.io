@@ -7,7 +7,7 @@
                 class="flex w-full flex-col gap-4 sm:flex-row-reverse sm:items-start sm:pr-4 sm:pt-2"
             >
                 <ImageModaller
-                    image-src="src/assets/images/SimultaneousTech.png"
+                    :src="SimultaneousTechImage"
                     caption="A still of the Simultaneous technique in use"
                 />
                 <div class="flex shrink flex-col gap-4">
@@ -22,7 +22,7 @@
 
             <div class="flex w-full flex-col gap-4 sm:flex-row sm:items-start sm:pr-4 sm:pt-2">
                 <ImageModaller
-                    image-src="src/assets/images/3DJumping.png"
+                    :src="Jumping3DImage"
                     caption="A still of the Anchor Ray technique in use"
                 />
                 <div class="flex shrink flex-col gap-4">
@@ -42,6 +42,9 @@
 import TextChain, { type TextChainPart } from '@/components/TextChain.vue';
 import ImageModaller from '@/components/ImageModaller.vue';
 import SectionLayout from './layout/SectionLayout.vue';
+
+import SimultaneousTechImage from '@/assets/images/SimultaneousTech.png';
+import Jumping3DImage from '@/assets/images/3DJumping.png';
 
 defineOptions({
     name: 'PublicationsSection',

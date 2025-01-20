@@ -1,14 +1,15 @@
-import useGetPath from '@/composables/useGetPath';
+import Ding1 from '@projects/CircleThreader/sounds/ding1.mp3';
+import Ding2 from '@projects/CircleThreader/sounds/ding2.mp3';
+import Ding3 from '@projects/CircleThreader/sounds/ding3.mp3';
 
 export function AudioManager() {
     var _dings = [],
         _audioPlayed,
         STANDARD_VOLUME = 0.5,
-        getPath = useGetPath().getPath,
         _init = () => {
-            _dings.push(new Audio(getPath('projects/CircleThreader/sounds/ding1.mp3')));
-            _dings.push(new Audio(getPath('projects/CircleThreader/sounds/ding2.mp3')));
-            _dings.push(new Audio(getPath('projects/CircleThreader/sounds/ding3.mp3')));
+            _dings.push(new Audio(Ding1));
+            _dings.push(new Audio(Ding2));
+            _dings.push(new Audio(Ding3));
             _dings.forEach((ding) => {
                 ding.loop = false;
                 ding.volume = STANDARD_VOLUME;

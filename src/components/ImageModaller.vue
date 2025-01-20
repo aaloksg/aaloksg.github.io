@@ -59,7 +59,6 @@ import CloseIcon from '@material-symbols/svg-600/rounded/close.svg';
 import RotateLeftIcon from '@material-symbols/svg-600/rounded/rotate_left.svg';
 import RotateRightIcon from '@material-symbols/svg-600/rounded/rotate_right.svg';
 import MDIcon from './icons/MDIcon.vue';
-import useGetPath from '@/composables/useGetPath';
 
 const IMAGE_MARGINS = 20; // in px
 defineOptions({
@@ -67,18 +66,14 @@ defineOptions({
 });
 
 type ImageModallerProps = {
-    imageSrc: string;
+    src: string;
     caption?: string;
     centerVertically?: boolean;
 };
 
-const props = withDefaults(defineProps<ImageModallerProps>(), {
+withDefaults(defineProps<ImageModallerProps>(), {
     caption: '',
 });
-
-const { getPath } = useGetPath();
-
-const src = computed(() => getPath(props.imageSrc));
 
 const { orientation } = useScreenOrientation();
 const isPortraitMode = computed(

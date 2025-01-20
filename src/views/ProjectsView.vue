@@ -11,7 +11,7 @@
                 />
                 <div class="flex flex-col gap-4 sm:flex-row-reverse">
                     <ImageModaller
-                        image-src="src/assets/images/MoInViz-Waste-Paracoords.png"
+                        :src="MoInVizImage"
                         center-vertically
                         caption="Visualizing waste generation with Parallel Coordinates on mobile devices"
                     />
@@ -39,7 +39,7 @@
                 />
                 <div class="flex flex-col gap-4 sm:flex-row">
                     <ImageModaller
-                        image-src="src/assets/images/F1Viz.png"
+                        :src="F1VizImage"
                         center-vertically
                         caption="A visualisation of the trajectory of the 2004 Monaco Grand Prix"
                     />
@@ -61,7 +61,7 @@
                 />
                 <div class="flex flex-col gap-4 sm:flex-row-reverse">
                     <ImageModaller
-                        image-src="src/assets/images/ModernTech-Spirituality-Poster.png"
+                        :src="SpiritualityPoster"
                         caption="A poster summarising the study"
                     />
 
@@ -81,7 +81,9 @@ import SectionLayout from './layout/SectionLayout.vue';
 import { computed, ref, type Ref } from 'vue';
 import { useElementVisibility } from '@vueuse/core';
 
-import useGetPath from '@/composables/useGetPath';
+import MoInVizImage from '@/assets/images/MoInViz-Waste-Paracoords.png';
+import F1VizImage from '@/assets/images/F1Viz.png';
+import SpiritualityPoster from '@/assets/images/ModernTech-Spirituality-Poster.png';
 
 defineOptions({
     name: 'PublicationsSection',
@@ -93,8 +95,6 @@ type ItemInView = {
     elementRef: Ref<HTMLElement | undefined>;
     visibility: Ref<boolean>;
 };
-
-const { getPath } = useGetPath();
 
 const moInVizBody = ref<HTMLElement>();
 const dataVizBody = ref<HTMLElement>();
@@ -204,7 +204,7 @@ const dataVizPara: TextChainPart[] = [
     },
     {
         text: 'interactive parallel coordinates visualization',
-        link: getPath('projects/F1DataVis/index.html'),
+        link: '@/projects/F1DataVis/index.html',
         bold: false,
         italic: true,
     },
