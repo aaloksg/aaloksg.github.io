@@ -204,7 +204,7 @@ const dataVizPara: TextChainPart[] = [
     },
     {
         text: 'interactive parallel coordinates visualization',
-        link: '@/projects/F1DataVis/index.html',
+        link: 'https://aaloksg.github.io/f1-data-viz/',
         bold: false,
         italic: true,
     },

@@ -1,6 +1,6 @@
 <template>
     <div class="flex items-center gap-1">
-        <h2 class="text-xl">Circle Threader</h2>
+        <h2 class="text-xl text-muted">Circle Threader</h2>
         <MDIcon
             :icon="muted ? VolumeOffIcon : VolumeUpIcon"
             class="h-9 w-9 cursor-pointer text-primary hover:text-accent"
