@@ -169,8 +169,8 @@ const moInVizPara2: TextChainPart[] = [
     },
     {
         text: 'built an app',
-        link: 'https://moin.vrsys.org/MoInVisApp.apk',
-        linkHint: 'Download the app - https://moin.vrsys.org/MoInVisApp.apk',
+        link: 'https://github.com/aaloksg/moin/blob/main/MoInVisApp.apk',
+        linkHint: 'Download the app - https://github.com/aaloksg/moin/blob/main/MoInVisApp.apk',
         bold: false,
         italic: true,
     },
@@ -182,7 +182,7 @@ const moInVizPara2: TextChainPart[] = [
     },
     {
         text: 'Check it out with a mobile browser here!',
-        link: 'https://moin.vrsys.org/',
+        link: 'https://aaloksg.github.io/moin/',
         bold: false,
         italic: true,
     },
