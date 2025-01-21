@@ -2,10 +2,8 @@
     <SectionLayout title="Publication">
         <TextChain class="sticky top-0 w-full bg-white py-1 text-lg" :texts="publicationPara" />
 
-        <div class="flex w-full flex-col gap-4 overflow-y-auto pb-8">
-            <div
-                class="flex w-full flex-col gap-4 sm:flex-row-reverse sm:items-start sm:pr-4 sm:pt-2"
-            >
+        <div class="flex w-full flex-col gap-4 overflow-y-auto pb-8 pr-2 sm:pr-4">
+            <div class="flex w-full flex-col gap-4 sm:flex-row-reverse sm:items-start sm:pt-2">
                 <ImageModaller
                     :src="SimultaneousTechImage"
                     caption="A still of the Simultaneous technique in use"
@@ -20,7 +18,7 @@
                 </div>
             </div>
 
-            <div class="flex w-full flex-col gap-4 sm:flex-row sm:items-start sm:pr-4 sm:pt-2">
+            <div class="flex w-full flex-col gap-4 sm:flex-row sm:items-start sm:pt-2">
                 <ImageModaller
                     :src="Jumping3DImage"
                     caption="A still of the Anchor Ray technique in use"

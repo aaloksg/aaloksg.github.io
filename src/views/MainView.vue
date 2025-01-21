@@ -11,15 +11,18 @@
                 class="grow"
             >
                 <ButtonItem
-                    variant="simple"
-                    class="relative h-full w-full whitespace-nowrap p-4 text-center"
-                    :class="[button.path === path ? 'text-xl font-bold' : 'font-light']"
+                    :variant="button.path === path ? 'simple-inverse' : 'none'"
+                    class="group relative h-full w-full whitespace-nowrap p-4 text-center"
+                    :class="[
+                        button.path === path
+                            ? 'rounded-t-2xl text-xl font-bold'
+                            : 'bg-primary font-light text-white',
+                    ]"
                     :disabled="button.path === path"
                 >
                     {{ button.text }}
                     <div
-                        v-if="button.path === path"
-                        class="absolute left-0 top-0 h-2 w-full rounded-b-lg bg-white transition duration-500"
+                        class="invisible absolute bottom-0 left-1/2 h-2 w-4/5 -translate-x-1/2 rounded-t-lg bg-white transition duration-500 group-enabled:group-hover:visible"
                     />
                 </ButtonItem>
             </RouterLink>
@@ -41,8 +44,8 @@
                     :to="button.path"
                 >
                     <ButtonItem
-                        variant="simple"
-                        class="relative w-full p-4 text-center"
+                        variant="none"
+                        class="relative w-full p-4 text-center text-white enabled:hover:bg-white enabled:hover:text-primary"
                         :disabled="button.path === path"
                         @click="menuCollapsed = true"
                     >

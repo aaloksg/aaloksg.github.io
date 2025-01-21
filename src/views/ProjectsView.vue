@@ -12,7 +12,6 @@
                 <div class="flex flex-col gap-4 sm:flex-row-reverse">
                     <ImageModaller
                         :src="MoInVizImage"
-                        center-vertically
                         caption="Visualizing waste generation with Parallel Coordinates on mobile devices"
                     />
 
@@ -23,8 +22,10 @@
                             :texts="moInVizList"
                             class="list-disc pl-2 text-base sm:text-sm"
                         />
-
-                        <TextChain :texts="moInVizPara2" class="text-lg sm:text-base" />
+                        <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+                            <TextChain :texts="moInVizPara2" class="text-lg sm:text-base" />
+                            <ImageModaller :src="MoInVizQR" size="small" center-vertically />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,6 +83,7 @@ import { computed, ref, type Ref } from 'vue';
 import { useElementVisibility } from '@vueuse/core';
 
 import MoInVizImage from '@/assets/images/MoInViz-Waste-Paracoords.png';
+import MoInVizQR from '@/assets/images/qrcode_moinviz.png';
 import F1VizImage from '@/assets/images/F1Viz.png';
 import SpiritualityPoster from '@/assets/images/ModernTech-Spirituality-Poster.png';
 
@@ -181,10 +183,16 @@ const moInVizPara2: TextChainPart[] = [
         italic: false,
     },
     {
-        text: 'Check it out with a mobile browser here!',
+        text: 'Check it out with a mobile browser here',
         link: 'https://aaloksg.github.io/moin/',
         bold: false,
         italic: true,
+    },
+    {
+        text: ', or scan the QR code.',
+        link: '',
+        bold: false,
+        italic: false,
     },
 ];
 

@@ -1,7 +1,11 @@
 <template>
     <img
-        class="h-auto max-h-full w-90vw cursor-pointer rounded-md object-cover text-center align-bottom sm:h-64 sm:w-auto"
-        :class="{ 'self-center': centerVertically }"
+        class="h-auto max-h-full cursor-pointer rounded-md object-cover text-center align-bottom sm:w-auto"
+        :class="{
+            'self-center': centerVertically,
+            'w-90vw sm:h-64 lg:h-80': size === 'medium',
+            'w-50vw sm:h-40 lg:h-48': size === 'small',
+        }"
         :src="src"
         @click.stop="onClick"
     />
@@ -69,10 +73,12 @@ type ImageModallerProps = {
     src: string;
     caption?: string;
     centerVertically?: boolean;
+    size?: 'small' | 'medium';
 };
 
 withDefaults(defineProps<ImageModallerProps>(), {
     caption: '',
+    size: 'medium',
 });
 
 const { orientation } = useScreenOrientation();

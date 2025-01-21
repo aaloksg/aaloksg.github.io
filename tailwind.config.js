@@ -24,6 +24,7 @@ export default {
             },
             spacing: {
                 '40vw': '40vw',
+                '50vw': '50vw',
                 '90vw': '90vw',
             },
             zIndex: {
