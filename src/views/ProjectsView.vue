@@ -20,7 +20,7 @@
                         <TextChain
                             as="ul"
                             :texts="moInVizList"
-                            class="list-disc pl-2 text-base sm:text-sm"
+                            class="list-disc pl-4 text-base sm:text-sm"
                         />
                         <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
                             <TextChain :texts="moInVizPara2" class="text-lg sm:text-base" />

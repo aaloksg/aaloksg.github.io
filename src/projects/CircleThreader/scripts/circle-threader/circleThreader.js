@@ -1,8 +1,8 @@
-import '../../libs/victor.js';
-import { Circle } from '../circle.js';
-import { Thread } from '../thread.js';
-import { ExplodingCircle } from '../explodingCircle.js';
-import { AudioManager } from '../audioManager.js';
+import '@/projects/CircleThreader/libs/victor.js';
+import { Circle } from '@/projects/CircleThreader/scripts/circle.js';
+import { Thread } from '@/projects/CircleThreader/scripts/thread.js';
+import { ExplodingCircle } from '@/projects/CircleThreader/scripts/explodingCircle.js';
+import { AudioManager } from '@/projects/CircleThreader/scripts/audioManager.js';
 
 function CircleThreader(svg) {
     var _svg = svg,

@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { ref, onUnmounted, watch } from 'vue';
-import CircleThreader from './scripts/circle-threader/index';
+import CircleThreader from '@/projects/CircleThreader/scripts/circle-threader/index';
 import VolumeOffIcon from '@material-symbols/svg-600/rounded/volume_off.svg';
 import VolumeUpIcon from '@material-symbols/svg-600/rounded/volume_up.svg';
 

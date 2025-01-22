@@ -1,4 +1,4 @@
-import '../libs/victor.js';
+import '@/projects/CircleThreader/libs/victor.js';
 
 export function Circle(svgParent, position, radius) {
     var _svgParent = svgParent,

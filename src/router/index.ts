@@ -1,8 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import BioView from '@/views/BioView.vue';
-import PublicationsView from '@/views/PublicationsView.vue';
-import ProjectsView from '@/views/ProjectsView.vue';
-import FunProjects from '@/views/FunProjects.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,22 +6,34 @@ const router = createRouter({
         {
             path: '/',
             name: 'bio',
-            component: BioView,
+            // route level code-splitting
+            // this generates a separate chunk (About.[hash].js) for this route
+            // which is lazy-loaded when the route is visited.
+            component: () => import('@/views/BioView.vue'),
         },
         {
             path: '/publication',
             name: 'publication',
-            component: PublicationsView,
+            // route level code-splitting
+            // this generates a separate chunk (About.[hash].js) for this route
+            // which is lazy-loaded when the route is visited.
+            component: () => import('@/views/PublicationsView.vue'),
         },
         {
             path: '/my-projects',
             name: 'my-projects',
-            component: ProjectsView,
+            // route level code-splitting
+            // this generates a separate chunk (About.[hash].js) for this route
+            // which is lazy-loaded when the route is visited.
+            component: () => import('@/views/ProjectsView.vue'),
         },
         {
             path: '/fun-projects',
             name: 'fun-projects',
-            component: FunProjects,
+            // route level code-splitting
+            // this generates a separate chunk (About.[hash].js) for this route
+            // which is lazy-loaded when the route is visited.
+            component: () => import('@/views/FunProjects.vue'),
         },
     ],
 });

@@ -1,6 +1,6 @@
-import Ding1 from '@projects/CircleThreader/sounds/ding1.mp3';
-import Ding2 from '@projects/CircleThreader/sounds/ding2.mp3';
-import Ding3 from '@projects/CircleThreader/sounds/ding3.mp3';
+import Ding1 from '@/projects/CircleThreader/sounds/ding1.mp3';
+import Ding2 from '@/projects/CircleThreader/sounds/ding2.mp3';
+import Ding3 from '@/projects/CircleThreader/sounds/ding3.mp3';
 
 export function AudioManager() {
     var _dings = [],
