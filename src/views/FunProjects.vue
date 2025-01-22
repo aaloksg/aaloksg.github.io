@@ -1,6 +1,8 @@
 <template>
     <SectionLayout title="Projects for fun">
-        <CircleThreader />
+        <div class="flex h-auto w-full grow flex-col overflow-hidden px-4 pb-8 lg:px-20">
+            <CircleThreader />
+        </div>
     </SectionLayout>
 </template>
 

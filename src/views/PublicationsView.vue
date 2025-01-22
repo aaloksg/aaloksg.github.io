@@ -1,35 +1,37 @@
 <template>
     <SectionLayout title="Publication">
-        <TextChain class="sticky top-0 w-full bg-white py-1 text-lg" :texts="publicationPara" />
+        <div class="flex flex-col gap-8 overflow-y-auto px-4 pb-8 lg:px-20">
+            <TextChain class="sticky top-0 w-full bg-white py-1 text-lg" :texts="publicationPara" />
 
-        <div class="flex w-full flex-col gap-4 overflow-y-auto pb-8 pr-2 sm:pr-4">
-            <div class="flex w-full flex-col gap-4 sm:flex-row-reverse sm:items-start sm:pt-2">
-                <ImageModaller
-                    :src="SimultaneousTechImage"
-                    caption="A still of the Simultaneous technique in use"
-                />
-                <div class="flex shrink flex-col gap-4">
-                    <TextChain
-                        v-for="(para, index) in paras"
-                        :key="`publication-text-para-${index}`"
-                        :texts="para"
-                        class="text-lg sm:text-base"
+            <div class="flex w-full flex-col gap-4">
+                <div class="flex w-full flex-col gap-4 sm:flex-row-reverse sm:items-start sm:pt-2">
+                    <ImageModaller
+                        :src="SimultaneousTechImage"
+                        caption="A still of the Simultaneous technique in use"
                     />
+                    <div class="flex shrink flex-col gap-4">
+                        <TextChain
+                            v-for="(para, index) in paras"
+                            :key="`publication-text-para-${index}`"
+                            :texts="para"
+                            class="text-lg sm:text-base"
+                        />
+                    </div>
                 </div>
-            </div>
 
-            <div class="flex w-full flex-col gap-4 sm:flex-row sm:items-start sm:pt-2">
-                <ImageModaller
-                    :src="Jumping3DImage"
-                    caption="A still of the Anchor Ray technique in use"
-                />
-                <div class="flex shrink flex-col gap-4">
-                    <TextChain
-                        v-for="(para, index) in paras2"
-                        :key="`publication-text-para-${index}`"
-                        :texts="para"
-                        class="text-lg sm:text-base"
+                <div class="flex w-full flex-col gap-4 sm:flex-row sm:items-start sm:pt-2">
+                    <ImageModaller
+                        :src="Jumping3DImage"
+                        caption="A still of the Anchor Ray technique in use"
                     />
+                    <div class="flex shrink flex-col gap-4">
+                        <TextChain
+                            v-for="(para, index) in paras2"
+                            :key="`publication-text-para-${index}`"
+                            :texts="para"
+                            class="text-lg sm:text-base"
+                        />
+                    </div>
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@
             <h1 class="align-text-top text-3xl font-bold">Aalok Shashidhar Gokhale</h1>
         </template>
         <template #default>
-            <div class="flex h-auto w-full grow flex-col justify-between overflow-y-auto">
+            <div class="flex h-auto w-full grow flex-col justify-between overflow-y-auto p-4">
                 <TextChain
                     :texts="descriptionPara"
                     class="self-start text-center text-lg sm:text-base"

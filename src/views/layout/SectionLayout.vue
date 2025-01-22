@@ -1,8 +1,8 @@
 <template>
     <div
-        class="flex h-full w-full snap-mandatory snap-start flex-col overflow-y-clip text-relative-xl xs:text-relative-lg sm:pt-4 md:text-relative-xs"
+        class="flex h-full w-full flex-col overflow-y-hidden text-relative-xl xs:text-relative-lg sm:pt-4 md:text-relative-xs"
     >
-        <div v-if="!isLargeScreen" class="py-3 pl-8">
+        <div v-if="!isLargeScreen" class="px-10 py-3">
             <slot name="title">
                 <h2 class="text-2xl">{{ title }}</h2>
             </slot>

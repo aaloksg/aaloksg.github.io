@@ -1,7 +1,7 @@
 <template>
     <SectionLayout title="Projects">
-        <div class="flex flex-col gap-8 overflow-y-auto pb-8 sm:pr-2">
-            <div ref="moInVizBody" class="flex flex-col gap-4 pr-2">
+        <div class="flex flex-col gap-8 overflow-y-auto px-4 pb-8 lg:px-20">
+            <div ref="moInVizBody" class="flex flex-col gap-4">
                 <TextChain
                     class="text-lg"
                     :class="[
@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-            <div ref="dataVizBody" class="flex flex-col gap-4 pr-2">
+            <div ref="dataVizBody" class="flex flex-col gap-4">
                 <TextChain
                     class="text-lg"
                     :class="[
@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            <div ref="techInHomeBody" class="flex flex-col gap-4 pr-2">
+            <div ref="techInHomeBody" class="flex flex-col gap-4">
                 <TextChain
                     class="text-lg"
                     :class="[
@@ -66,7 +66,7 @@
                         caption="A poster summarising the study"
                     />
 
-                    <div class="flex flex-col gap-4">
+                    <div class="flex flex-col gap-4 text-justify">
                         <TextChain :texts="techInHomePara" class="text-lg sm:text-base" />
                     </div>
                 </div>
@@ -141,21 +141,21 @@ const moInVizPara1: TextChainPart[] = [
 ];
 const moInVizList: TextChainPart[] = [
     {
-        text: '- using large interactable areas and staggered handles to combat fat finger problems',
+        text: 'using large interactable areas and staggered handles to combat fat finger problems',
         link: '',
         bold: false,
         italic: false,
         type: 'li',
     },
     {
-        text: '- using tabs instead of menu buttons and using portrait mode to use space efficiently',
+        text: 'using tabs instead of menu buttons and using portrait mode to use space efficiently',
         link: '',
         bold: false,
         italic: false,
         type: 'li',
     },
     {
-        text: '- designing to avoid interference with screen-edge gestures',
+        text: 'designing to avoid interference with screen-edge gestures',
         link: '',
         bold: false,
         italic: false,

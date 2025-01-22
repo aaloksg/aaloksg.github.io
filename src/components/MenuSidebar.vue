@@ -1,7 +1,7 @@
 <template>
     <div
         ref="menuRef"
-        class="flex h-full select-none flex-col bg-primary/90 shadow-md transition-all duration-200"
+        class="flex h-screen select-none flex-col bg-primary/90 shadow-md transition-all duration-200"
     >
         <div
             :class="{

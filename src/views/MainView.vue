@@ -52,13 +52,13 @@
                         {{ button.text }}
                         <div
                             v-if="button.path === path"
-                            class="absolute right-2 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-white"
+                            class="absolute right-2 top-1/2 h-2 w-2 -translate-y-1/2 animate-pulse rounded-full bg-white"
                         />
                     </ButtonItem>
                 </RouterLink>
             </nav>
         </MenuSidebar>
-        <RouterView class="h-full pl-4 sm:h-auto sm:grow sm:overflow-y-auto" />
+        <RouterView class="h-full sm:h-auto sm:grow sm:overflow-y-auto" />
     </div>
 </template>
 
