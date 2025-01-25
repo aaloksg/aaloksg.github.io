@@ -1,5 +1,5 @@
 <template>
-    <component :is="as" class="text-secondary leading-6">
+    <component :is="as" class="leading-6 text-secondary dark:text-white">
         <template v-for="(textPart, index) in texts" :key="`text-${index}`">
             <HyperlinkText
                 v-if="textPart.link"

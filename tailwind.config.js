@@ -1,11 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: 'selector',
     content: ['./src/**/*.{html,js,vue,ts}', './projects/**/*.{html,js,vue,ts}'],
     theme: {
         extend: {
             colors: {
                 primary: '#c45911',
                 muted: '#424242',
+                'muted-inverse': '#ffb786',
                 light: '#bcbcbc',
                 accent: '#ff8738',
                 dark: '#424242',

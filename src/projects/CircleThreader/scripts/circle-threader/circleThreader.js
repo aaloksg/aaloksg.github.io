@@ -40,7 +40,7 @@ function CircleThreader(svg) {
             _centre.x = _width / 2;
             _centre.y = _height / 2;
             _circle = new Circle(_svg, _centre, _radius);
-            _circle.color = '#424242';
+            _circle.color = 'currentColor';
             _circle.svgElement.setAttributeNS(null, 'cursor', 'auto');
             _bouncingCircle = new Circle(_svg, _centre, 10);
             _bouncingCircle.color = '#c45911';

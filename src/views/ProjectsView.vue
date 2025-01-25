@@ -5,7 +5,9 @@
                 <TextChain
                     class="text-lg"
                     :class="[
-                        currentStickyTitle === 'MoInViz' ? 'sticky top-0 w-full bg-white py-1' : '',
+                        currentStickyTitle === 'MoInViz'
+                            ? 'sticky top-0 w-full bg-white py-1 dark:bg-muted'
+                            : '',
                     ]"
                     :texts="moInVizTitle"
                 />
@@ -34,7 +36,9 @@
                 <TextChain
                     class="text-lg"
                     :class="[
-                        currentStickyTitle === 'DataViz' ? 'sticky top-0 w-full bg-white py-1' : '',
+                        currentStickyTitle === 'DataViz'
+                            ? 'sticky top-0 w-full bg-white py-1 dark:bg-muted'
+                            : '',
                     ]"
                     :texts="dataVizTitle"
                 />
@@ -55,7 +59,7 @@
                     class="text-lg"
                     :class="[
                         currentStickyTitle === 'TechInHome'
-                            ? 'sticky -top-0.5 w-full bg-white py-1'
+                            ? 'sticky -top-0.5 w-full bg-white py-1 dark:bg-muted'
                             : '',
                     ]"
                     :texts="techInHomeTitle"

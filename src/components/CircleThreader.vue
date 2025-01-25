@@ -1,14 +1,18 @@
 <template>
     <div class="flex items-center gap-1">
-        <h2 class="text-xl text-muted">Circle Threader</h2>
+        <h2 class="text-xl text-muted dark:text-white">Circle Threader</h2>
         <MDIcon
             :icon="muted ? VolumeOffIcon : VolumeUpIcon"
             class="h-9 w-9 cursor-pointer text-primary hover:text-accent"
             @click.stop="toggleMute"
         />
     </div>
-    <p class="text-sm text-muted">Hit the ball against the boundary.</p>
-    <svg ref="svgElementRef" id="circle-threader-svg" class="h-full w-full"></svg>
+    <p class="text-sm text-muted dark:text-white">Hit the ball against the boundary.</p>
+    <svg
+        ref="svgElementRef"
+        id="circle-threader-svg"
+        class="h-full w-full text-muted dark:text-black/40"
+    ></svg>
 </template>
 
 <script setup lang="ts">
@@ -17,7 +21,7 @@ import CircleThreader from '@/projects/CircleThreader/scripts/circle-threader/in
 import VolumeOffIcon from '@material-symbols/svg-600/rounded/volume_off.svg';
 import VolumeUpIcon from '@material-symbols/svg-600/rounded/volume_up.svg';
 
-import MDIcon from '@/components/icons/MDIcon.vue';
+import MDIcon from '@/components/MDIcon.vue';
 
 defineOptions({
     name: 'CircleThreader',

@@ -13,9 +13,9 @@
 </template>
 <script setup lang="ts">
 const VARIANTS = {
-    simple: 'text-muted hover:text-accent',
+    simple: 'text-muted dark:text-muted-inverse hover:text-accent',
     decorated:
-        'hover:bg-accent/40 rounded-lg p-1 text-muted decoration-primary underline decoration-dotted hover:decoration-solid',
+        'hover:bg-accent/40 rounded-lg p-1 text-muted dark:text-muted-inverse underline-offset-4 decoration-primary underline decoration-dotted hover:decoration-solid',
 };
 
 type HyperlinkTextProps = {

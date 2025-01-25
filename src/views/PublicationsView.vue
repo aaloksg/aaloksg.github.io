@@ -1,7 +1,10 @@
 <template>
     <SectionLayout title="Publication">
         <div class="flex flex-col gap-8 overflow-y-auto px-4 pb-8 lg:px-20">
-            <TextChain class="sticky top-0 w-full bg-white py-1 text-lg" :texts="publicationPara" />
+            <TextChain
+                class="sticky top-0 w-full bg-white py-1 text-lg dark:bg-muted"
+                :texts="publicationPara"
+            />
 
             <div class="flex w-full flex-col gap-4">
                 <div class="flex w-full flex-col gap-4 sm:flex-row-reverse sm:items-start sm:pt-2">

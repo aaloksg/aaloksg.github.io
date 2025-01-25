@@ -30,7 +30,7 @@ export function Circle(svgParent, position, radius) {
         },
         _setColor = (color) => {
             _color = color;
-            _svgElement.style.fill = `${_color}${_alpha}`;
+            _svgElement.style.fill = color.includes('#') ? `${_color}${_alpha}` : `${_color}`;
         },
         _setPosition = (position) => {
             _position.x = position.x;

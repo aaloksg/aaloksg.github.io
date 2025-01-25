@@ -5,10 +5,9 @@
 </template>
 <script setup lang="ts">
 const VARIANTS = {
-    ghost: 'text-white enabled:hover:text-black',
-    'ghost-inverse': 'text-primary enabled:hover:text-black',
-    simple: 'text-white bg-primary enabled:hover:bg-white enabled:hover:text-primary',
-    'simple-inverse': 'text-primary bg-white enabled:hover:bg-primary enabled:hover:text-white',
+    ghost: 'text-white enabled:hover:text-accent',
+    'ghost-inverse': 'text-primary enabled:hover:text-accent',
+    simple: 'text-primary bg-white dark:bg-muted enabled:hover:bg-primary enabled:hover:text-white',
     none: '',
 };
 

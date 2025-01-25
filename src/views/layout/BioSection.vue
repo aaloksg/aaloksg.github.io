@@ -54,7 +54,7 @@ import MailIcon from '@material-symbols/svg-600/rounded/mail.svg';
 import InstagramIcon from '@/assets/icons/instagram.svg';
 import LinkedinIcon from '@/assets/icons/linkedin.svg';
 
-import MDIcon from '@/components/icons/MDIcon.vue';
+import MDIcon from '@/components/MDIcon.vue';
 
 defineOptions({
     name: 'BioSection',

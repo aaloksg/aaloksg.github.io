@@ -62,7 +62,7 @@ import { ref, computed, onMounted } from 'vue';
 import CloseIcon from '@material-symbols/svg-600/rounded/close.svg';
 import RotateLeftIcon from '@material-symbols/svg-600/rounded/rotate_left.svg';
 import RotateRightIcon from '@material-symbols/svg-600/rounded/rotate_right.svg';
-import MDIcon from './icons/MDIcon.vue';
+import MDIcon from './MDIcon.vue';
 
 const IMAGE_MARGINS = 20; // in px
 defineOptions({
