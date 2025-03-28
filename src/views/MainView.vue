@@ -12,19 +12,37 @@
                     class="grow"
                 >
                     <ButtonItem
-                        :variant="button.path === path ? 'simple' : 'none'"
+                        :variant="button.path === path ? 'none' : 'none'"
                         class="group relative h-full w-full whitespace-nowrap p-4 text-center"
                         :class="[
                             button.path === path
-                                ? 'rounded-t-2xl text-xl font-bold'
-                                : 'bg-primary font-light text-white',
+                                ? clsx(
+                                      'rounded-t-2xl pb-3 pt-5 text-xl font-bold text-primary',
+                                      'bg-gradient-to-t via-65% to-85%',
+                                      'from-white via-white/70 to-white/5',
+                                      'dark:from-muted dark:via-muted/70 dark:to-muted/5'
+                                  )
+                                : clsx(
+                                      'font-light text-white',
+                                      'enabled:hover:bg-gradient-to-t',
+                                      'from-80% via-80% to-95%',
+                                      'from-primary via-white to-primary dark:via-muted'
+                                  ),
                         ]"
                         :disabled="button.path === path"
                     >
                         {{ button.text }}
-                        <div
-                            class="invisible absolute bottom-0 left-1/2 h-2 w-4/5 -translate-x-1/2 rounded-t-lg bg-white transition duration-500 group-enabled:group-hover:visible dark:bg-muted"
-                        />
+                        <!-- <div
+                            :class="
+                                clsx(
+                                    'h-2 w-4/5 rounded-t-lg',
+                                    'invisible group-enabled:group-hover:visible',
+                                    'absolute bottom-0 left-1/2 -translate-x-1/2',
+                                    'bg-gradient-to-t from-white to-primary dark:from-muted',
+                                    'transition duration-500'
+                                )
+                            "
+                        /> -->
                     </ButtonItem>
                 </RouterLink>
             </nav>
@@ -76,6 +94,7 @@ import ButtonItem from '@/components/ButtonItem.vue';
 import { useRoute } from 'vue-router';
 import useIsLargeScreen from '@/composables/useIsLargeScreen';
 import DarkModeToggle from '@/components/DarkModeToggle.vue';
+import clsx from 'clsx';
 
 const { isLargeScreen } = useIsLargeScreen();
 

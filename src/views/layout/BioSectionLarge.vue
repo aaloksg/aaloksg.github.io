@@ -62,7 +62,41 @@ defineOptions({
 const descriptionPara: TextChainPart[][] = [
     [
         {
-            text: 'I am a web developer at',
+            text: 'I am a ',
+            link: '',
+            bold: false,
+        },
+        {
+            text: 'Frontend Web Developer',
+            link: '',
+            bold: true,
+        },
+        {
+            text: ' with ',
+            link: '',
+            bold: false,
+        },
+        {
+            text: '10+ years',
+            link: '',
+            bold: true,
+        },
+        {
+            text: ' of experience. I completed my Master’s degree in Human-Computer Interaction at Bauhaus-Universität, Germany, where I worked on projects in the fields of Virtual Reality, Visualization, and UCD & qualitative and quantitative research.',
+            link: '',
+            bold: false,
+        },
+    ],
+    [
+        {
+            text: ' I am particularly interested by and enjoy working on/with Virtual Reality, Visualization and Javascript, and am passionate about creating innovative and interactive digital solutions that enhance user experience and satisfaction.',
+            link: '',
+            bold: false,
+        },
+    ],
+    [
+        {
+            text: 'Former Web Developer at',
             link: '',
             bold: false,
         },
@@ -72,7 +106,7 @@ const descriptionPara: TextChainPart[][] = [
             bold: false,
         },
         {
-            text: 'working on Frontend UI, and build 3D and virtual web experiences for the rooom',
+            text: 'working on Frontend UI, and building 3D and virtual web experiences for the rooom',
             link: '',
             bold: false,
         },
@@ -99,7 +133,7 @@ const descriptionPara: TextChainPart[][] = [
     ],
     [
         {
-            text: ' I completed my Master’s degree in Human-Computer Interaction at Bauhaus-Universität, Germany, where I worked on projects in the fields of Virtual Reality, Visualization, and UCD & qualitative and quantitative research. I am particularly interested by and enjoy working on/with Virtual Reality, Visualization and Javascript.',
+            text: 'Former Software Developer at Siemens, where I built real-time SCADA web applications, picking up data visualization concepts and skills in building responsive cross-device and cross-browser web UI.',
             link: '',
             bold: false,
         },

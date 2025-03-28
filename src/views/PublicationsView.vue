@@ -6,7 +6,7 @@
                 :texts="publicationPara"
             />
 
-            <div class="flex w-full flex-col gap-4">
+            <div class="flex w-full flex-col gap-4 sm:gap-6">
                 <div class="flex w-full flex-col gap-4 sm:flex-row-reverse sm:items-start sm:pt-2">
                     <ImageModaller
                         :src="SimultaneousTechImage"
@@ -23,10 +23,19 @@
                 </div>
 
                 <div class="flex w-full flex-col gap-4 sm:flex-row sm:items-start sm:pt-2">
-                    <ImageModaller
-                        :src="Jumping3DImage"
-                        caption="A still of the Anchor Ray technique in use"
-                    />
+                    <div class="aspect-video h-auto w-90vw grow sm:h-40 md:h-60 lg:h-80">
+                        <iframe
+                            class="h-full w-full"
+                            width="560"
+                            height="315"
+                            src="https://www.youtube.com/embed/videoseries?si=kxhMz-36Mkb1tW9p&amp;list=PLWKagjo38Yl6N4rg7DZAn5rdys1O4ml-Y"
+                            title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
                     <div class="flex shrink flex-col gap-4">
                         <TextChain
                             v-for="(para, index) in paras2"
@@ -47,7 +56,6 @@ import ImageModaller from '@/components/ImageModaller.vue';
 import SectionLayout from './layout/SectionLayout.vue';
 
 import SimultaneousTechImage from '@/assets/images/SimultaneousTech.png';
-import Jumping3DImage from '@/assets/images/3DJumping.png';
 
 defineOptions({
     name: 'PublicationsSection',
@@ -132,7 +140,7 @@ const paras2: TextChainPart[][] = [
         },
         {
             text: 'three novel mid-air jumping techniques',
-            link: 'https://www.youtube.com/playlist?list=PLWKagjo38Yl6N4rg7DZAn5rdys1O4ml-Y',
+            // link: 'https://www.youtube.com/playlist?list=PLWKagjo38Yl6N4rg7DZAn5rdys1O4ml-Y',
             bold: false,
             italic: true,
         },

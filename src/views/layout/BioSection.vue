@@ -4,14 +4,17 @@
             <h1 class="align-text-top text-3xl font-bold">Aalok Shashidhar Gokhale</h1>
         </template>
         <template #default>
-            <div class="flex h-auto w-full grow flex-col justify-between overflow-y-auto p-4">
-                <TextChain
-                    :texts="descriptionPara"
-                    class="self-start text-center text-lg sm:text-base"
-                />
+            <div
+                class="flex h-auto w-full grow flex-col justify-between gap-2 overflow-y-auto p-4 sm:gap-4"
+            >
                 <TextChain
                     v-for="(para, index) in paras"
                     :key="`bio-text-para-${index}`"
+                    :texts="para"
+                />
+                <TextChain
+                    v-for="(para, index) in previousExperiences"
+                    :key="`bio-text-previous-experiences-${index}`"
                     :texts="para"
                 />
 
@@ -60,44 +63,6 @@ defineOptions({
     name: 'BioSection',
 });
 
-const descriptionPara: TextChainPart[] = [
-    {
-        text: 'I am a web developer at',
-        link: '',
-        bold: false,
-    },
-    {
-        text: 'rooom AG',
-        link: 'https://www.rooom.com/',
-        bold: false,
-    },
-    {
-        text: 'working on Frontend UI, and build 3D and virtual web experiences for the rooom',
-        link: '',
-        bold: false,
-    },
-    {
-        text: 'Spaces',
-        link: 'https://www.rooom.com/rooom-spaces',
-        bold: false,
-    },
-    {
-        text: 'and',
-        link: '',
-        bold: false,
-    },
-    {
-        text: 'Products',
-        link: 'https://www.rooom.com/rooom-products',
-        bold: false,
-    },
-    {
-        text: 'team.',
-        link: '',
-        bold: false,
-    },
-];
-
 const paras: TextChainPart[][] = [
     [
         {
@@ -106,7 +71,17 @@ const paras: TextChainPart[][] = [
             bold: true,
         },
         {
-            text: ' with a passion for Virtual Reality, Visualization, and JavaScript.',
+            text: ' with ',
+            link: '',
+            bold: false,
+        },
+        {
+            text: '10+ years',
+            link: '',
+            bold: true,
+        },
+        {
+            text: ' of experience, and a passion for Virtual Reality, Visualization, JavaScript, and creating innovative and interactive digital solutions that enhance user experience and satisfaction.',
             link: '',
             bold: false,
         },
@@ -151,6 +126,53 @@ const paras: TextChainPart[][] = [
         },
         {
             text: ', Visvesvaraya Technological University, India.',
+            link: '',
+            bold: false,
+        },
+    ],
+];
+
+const previousExperiences: TextChainPart[][] = [
+    [
+        {
+            text: 'Former web developer at',
+            link: '',
+            bold: false,
+        },
+        {
+            text: 'rooom AG',
+            link: 'https://www.rooom.com/',
+            bold: false,
+        },
+        {
+            text: 'working on Frontend UI, and building 3D and virtual web experiences for the rooom',
+            link: '',
+            bold: false,
+        },
+        {
+            text: 'Spaces',
+            link: 'https://www.rooom.com/rooom-spaces',
+            bold: false,
+        },
+        {
+            text: 'and',
+            link: '',
+            bold: false,
+        },
+        {
+            text: 'Products',
+            link: 'https://www.rooom.com/rooom-products',
+            bold: false,
+        },
+        {
+            text: 'team.',
+            link: '',
+            bold: false,
+        },
+    ],
+    [
+        {
+            text: 'Former Software Developer at Siemens, where I built real-time SCADA web applications, picking up data visualization concepts and skills in building responsive cross-device and cross-browser web UI.',
             link: '',
             bold: false,
         },
