@@ -270,12 +270,15 @@ function CircleThreader(svg) {
             _resizeObserver.disconnect();
             _resizeObserver = null;
             _circle.cleanUp();
-            _svg = null;
             _circle = null;
             _bouncingCircle.cleanUp();
             _bouncingCircle = null;
             _threads.forEach((thread) => thread.cleanUp());
             _threads = [];
+            _svg.childNodes.forEach((node) => {
+                node.remove();
+            });
+            _svg = null;
         };
 
     _initSvg();
