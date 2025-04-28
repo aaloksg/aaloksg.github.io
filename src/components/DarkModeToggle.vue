@@ -9,7 +9,7 @@
         ]"
         @click.stop="toggleMode"
     >
-        <MDIcon :icon="darkMode ? LightModeIcon : DarkModeIcon" class="h-6 w-6" />
+        <MDIcon :icon="darkMode ? LightModeIcon : DarkModeIcon" class="slow-rotate h-6 w-6" />
     </ButtonItem>
 </template>
 
@@ -46,3 +46,21 @@ onBeforeMount(() => {
         (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
 });
 </script>
+
+<style lang="css">
+.slow-rotate {
+    animation: rotate-animation 20s linear infinite;
+}
+
+@keyframes rotate-animation {
+    0% {
+        rotate: 0deg;
+    }
+    50% {
+        rotate: 180deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+</style>
