@@ -13,20 +13,19 @@
                 >
                     <ButtonItem
                         :variant="button.path === path ? 'none' : 'none'"
-                        class="group relative h-full w-full whitespace-nowrap p-4 text-center"
+                        class="group relative h-full w-full whitespace-nowrap p-3 text-center"
                         :class="[
                             button.path === path
                                 ? clsx(
-                                      'rounded-t-2xl pb-3 pt-5 text-xl font-bold text-primary',
-                                      'bg-gradient-to-t via-65% to-85%',
-                                      'from-white via-white/70 to-white/5',
-                                      'dark:from-muted dark:via-muted/70 dark:to-muted/5'
+                                      'rounded-t-2xl pb-2 pt-4 text-xl font-bold text-primary',
+                                      'border-t-8 border-t-primary',
+                                      'bg-white',
+                                      'dark:bg-muted'
                                   )
                                 : clsx(
                                       'font-light text-white',
-                                      'enabled:hover:bg-gradient-to-t',
-                                      'from-80% via-80% to-95%',
-                                      'from-primary via-white to-primary dark:via-muted'
+                                      'enabled:hover:border-t-8',
+                                      'border-t-white dark:border-t-muted'
                                   ),
                         ]"
                         :disabled="button.path === path"
