@@ -21,11 +21,23 @@
                         <div class="flex flex-col gap-4">
                             <TextChain
                                 v-for="(para, index) in paras"
-                                :key="`publication-text-para-1-${index}`"
+                                :key="`publication-text-para-0-${index}`"
                                 :texts="para"
                                 class="text-lg sm:text-base"
                             />
                         </div>
+                    </div>
+                </div>
+            </SnapSection>
+            <SnapSection>
+                <div class="flex h-full flex-col justify-center gap-10 px-4 sm:pb-4 lg:px-20">
+                    <div class="flex flex-col gap-4">
+                        <TextChain
+                            v-for="(para, index) in paras1"
+                            :key="`publication-text-para-1-${index}`"
+                            :texts="para"
+                            class="text-lg sm:text-base"
+                        />
                     </div>
                 </div>
             </SnapSection>
@@ -36,6 +48,14 @@
                         :key="`publication-text-para-2-${index}`"
                         :texts="para"
                         class="text-lg sm:text-base"
+                    />
+                    <PhotoRoll
+                        :images="[
+                            {
+                                src: AnchorRayImage,
+                                alt: `A still of the Anchor ray technique (elevation specification with a connected second step) in use`,
+                            },
+                        ]"
                     />
                 </div>
             </SnapSection>
@@ -77,6 +97,7 @@ import SnapSection from './layout/SnapSection.vue';
 import PhotoRoll from '@/components/photo-reel/PhotoRoll.vue';
 
 import SimultaneousTechImage from '@/assets/images/SimultaneousTech.png';
+import AnchorRayImage from '@/assets/images/Anchor_cylinder.png';
 
 defineOptions({
     name: 'PublicationsSection',
@@ -93,14 +114,20 @@ const publicationPara: TextChainPart[] = [
 const paras: TextChainPart[][] = [
     [
         {
-            text: `Three adaptations of the classic teleportation metaphor that enable the user to travel to mid-air targets are presented. The three techniques differ in the extent to which elevation changes are integrated into the conventional target selection process. Elevation can be specified either simultaneously, as a connected second step, or separately from horizontal movements. From the results of a user study with 30 participants, initial design guidelines for mid-air navigation techniques were defined.`,
+            text: `Three adaptations of the classic teleportation metaphor that enable the user to travel to mid-air targets are presented. The three techniques differ in the extent to which elevation changes are integrated into the conventional target selection process. `,
             link: '',
             bold: false,
         },
     ],
 ];
-
-const paras2: TextChainPart[][] = [
+const paras1: TextChainPart[][] = [
+    [
+        {
+            text: `Elevation can be specified either simultaneously, as a connected second step, or separately from horizontal movements. From the results of a user study with 30 participants, initial design guidelines for mid-air navigation techniques were defined.`,
+            link: '',
+            bold: false,
+        },
+    ],
     [
         {
             text: 'This work received an ',
@@ -152,6 +179,9 @@ const paras2: TextChainPart[][] = [
             italic: false,
         },
     ],
+];
+
+const paras2: TextChainPart[][] = [
     [
         {
             text: 'My thesis investigated how common jumping implementations can be extended to integrate the specification of height as an additional degree of freedom in target specification. Based on related research, I created ',
