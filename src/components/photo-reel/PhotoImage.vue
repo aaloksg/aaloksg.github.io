@@ -58,8 +58,8 @@ const photoRef = ref<HTMLDivElement>();
 
 const imageRef = ref<HTMLImageElement>();
 
-const aspectRatio = computed(() =>
-    imageRef.value ? imageRef.value.naturalWidth / imageRef.value.naturalHeight : 1
+const aspectRatio = computed(
+    () => (imageRef.value ? imageRef.value.naturalWidth / imageRef.value.naturalHeight : 1) || 1
 );
 
 const photoDim = computed(() => {

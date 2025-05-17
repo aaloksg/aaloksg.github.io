@@ -1,39 +1,49 @@
 <template>
     <SectionLayout title="Publication">
-        <div class="flex flex-col gap-8 overflow-y-auto px-4 pb-8 lg:px-20">
-            <TextChain
-                class="dark:bg-muted sticky top-0 w-full bg-white py-1 text-lg"
-                :texts="publicationPara"
-            />
-
-            <div class="flex w-full flex-col gap-4 sm:gap-6">
-                <div class="flex w-full flex-col gap-4 sm:flex-row-reverse sm:items-start sm:pt-2">
-                    <ImageModaller
-                        :src="SimultaneousTechImage"
-                        alt="A still of the Simultaneous technique in use"
+        <div class="h-full w-full snap-y snap-mandatory overflow-y-auto">
+            <SnapSection>
+                <div class="flex h-full flex-col">
+                    <TextChain
+                        class="dark:bg-muted sticky top-0 z-10 w-full bg-white px-4 py-1 text-lg lg:px-20"
+                        :texts="publicationPara"
+                    />
+                    <div
+                        class="flex h-full flex-col justify-center gap-6 px-4 pb-4 sm:gap-2 lg:px-20"
                     >
-                        <template #default="{ showModal }">
-                            <img
-                                ref="imageRef"
-                                class="shrink-0 cursor-pointer rounded-lg object-contain"
-                                :src="SimultaneousTechImage"
-                                alt="A still of the Simultaneous technique in use"
-                                @click="showModal"
-                            />
-                        </template>
-                    </ImageModaller>
-                    <div class="flex shrink flex-col gap-4">
-                        <TextChain
-                            v-for="(para, index) in paras"
-                            :key="`publication-text-para-${index}`"
-                            :texts="para"
-                            class="text-lg sm:text-base"
+                        <PhotoRoll
+                            :images="[
+                                {
+                                    src: SimultaneousTechImage,
+                                    alt: 'A still of the Simultaneous technique in use',
+                                },
+                            ]"
                         />
+                        <div class="flex flex-col gap-4">
+                            <TextChain
+                                v-for="(para, index) in paras"
+                                :key="`publication-text-para-1-${index}`"
+                                :texts="para"
+                                class="text-lg sm:text-base"
+                            />
+                        </div>
                     </div>
                 </div>
-
-                <div class="flex w-full flex-col gap-4 sm:flex-row sm:items-start sm:pt-2">
-                    <div class="aspect-video h-auto w-[90vw] grow sm:h-40 md:h-60 lg:h-80">
+            </SnapSection>
+            <SnapSection>
+                <div class="flex h-full flex-col justify-center gap-10 px-4 sm:pb-4 lg:px-20">
+                    <TextChain
+                        v-for="(para, index) in paras2"
+                        :key="`publication-text-para-2-${index}`"
+                        :texts="para"
+                        class="text-lg sm:text-base"
+                    />
+                </div>
+            </SnapSection>
+            <SnapSection>
+                <div class="flex h-full flex-col justify-center gap-6 px-4 pb-4 sm:gap-2 lg:px-20">
+                    <div
+                        class="aspect-video h-auto w-[90vw] grow self-center sm:h-40 md:h-60 lg:h-80"
+                    >
                         <iframe
                             class="h-full w-full"
                             width="560"
@@ -48,22 +58,23 @@
                     </div>
                     <div class="flex shrink flex-col gap-4">
                         <TextChain
-                            v-for="(para, index) in paras2"
-                            :key="`publication-text-para-${index}`"
+                            v-for="(para, index) in paras3"
+                            :key="`publication-text-para-3-${index}`"
                             :texts="para"
                             class="text-lg sm:text-base"
                         />
                     </div>
                 </div>
-            </div>
+            </SnapSection>
         </div>
     </SectionLayout>
 </template>
 
 <script setup lang="ts">
 import TextChain, { type TextChainPart } from '@/components/TextChain.vue';
-import ImageModaller from '@/components/photo-reel/ImageModaller.vue';
 import SectionLayout from './layout/SectionLayout.vue';
+import SnapSection from './layout/SnapSection.vue';
+import PhotoRoll from '@/components/photo-reel/PhotoRoll.vue';
 
 import SimultaneousTechImage from '@/assets/images/SimultaneousTech.png';
 
@@ -87,6 +98,9 @@ const paras: TextChainPart[][] = [
             bold: false,
         },
     ],
+];
+
+const paras2: TextChainPart[][] = [
     [
         {
             text: 'This work received an ',
@@ -118,9 +132,6 @@ const paras: TextChainPart[][] = [
             italic: false,
         },
     ],
-];
-
-const paras2: TextChainPart[][] = [
     [
         {
             text: `The body of work that went into my Master's thesis - `,
@@ -161,6 +172,9 @@ const paras2: TextChainPart[][] = [
             italic: false,
         },
     ],
+];
+
+const paras3: TextChainPart[][] = [
     [
         {
             text: 'An exploratory study was designed and conducted with 15 participants to evaluate and compare the three techniques for various quality factors. The results of the study indicated that all techniques performed adequately and successfully kept simulator sickness and feelings of vertigo or fear of heights to a minimum, and encouraged the investigation of a combination of the Anchor Ray and the Elevator Ray as a mid-air jumping technique.',

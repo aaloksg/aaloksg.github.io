@@ -3,14 +3,14 @@
         <slot />
         <ButtonItem
             variant="generic"
-            class="absolute right-3 top-3 rounded-full bg-orange-300/50 p-3 hover:bg-orange-300/100 active:bg-orange-300/100 group-first:hidden"
+            class="absolute top-3 right-3 z-20 rounded-full bg-orange-300/50 p-3 group-first:hidden hover:bg-orange-300/100 active:bg-orange-300/100"
             @click.stop="scrollUp"
         >
             <MDIcon :icon="ArrowUpIcon" class="h-6 w-6 text-black" />
         </ButtonItem>
         <ButtonItem
             variant="generic"
-            class="absolute bottom-3 right-3 rounded-full bg-orange-300/50 p-3 hover:bg-orange-300/100 active:bg-orange-300/100 group-last:hidden"
+            class="absolute right-3 bottom-3 z-20 rounded-full bg-orange-300/50 p-3 group-last:hidden hover:bg-orange-300/100 active:bg-orange-300/100"
             @click.stop="scrollDown"
         >
             <MDIcon :icon="ArrowDownIcon" class="h-6 w-6 text-black" />

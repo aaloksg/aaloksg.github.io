@@ -1,44 +1,51 @@
 <template>
-    <div
-        ref="parentRef"
-        class="absolute top-0 left-0 flex h-full max-h-full w-full max-w-full items-center justify-center"
-    >
+    <div :class="cn('relative mt-1 h-70 w-full sm:h-auto sm:grow', inheritedClasses)">
         <div
-            class="outline-muted flex h-full rounded-lg outline-2 transition-all duration-500 dark:bg-gray-950/50 dark:outline-white"
-            :style="{ width: albumDim.width }"
+            ref="parentRef"
+            class="absolute top-0 left-0 flex h-full max-h-full w-full max-w-full items-center justify-center"
         >
             <div
-                ref="albumRef"
-                class="flex h-full w-full snap-x snap-mandatory items-center gap-5 overflow-x-auto overflow-y-hidden"
-                :class="{ 'justify-center': images.length === 1 }"
+                class="outline-muted flex h-full rounded-lg outline-2 transition-all duration-500 dark:bg-gray-950/50 dark:outline-white"
+                :style="{ width: albumDim.width }"
             >
-                <PhotoImage
-                    v-for="(image, index) in images"
-                    ref="photosRef"
-                    :key="`photo-roll-image-${image}`"
-                    :image="image"
-                    :parent-height="parentHeight - 10"
-                    :parent-width="parentWidth"
-                    :album-buffer="ALBUM_BUFFER_WIDTH"
-                    @scrolled-to="(...args) => setAlbumDim(index, ...args)"
-                />
+                <div
+                    ref="albumRef"
+                    class="flex h-full w-full snap-x snap-mandatory items-center gap-5 overflow-x-auto overflow-y-hidden"
+                    :class="{ 'justify-center': images.length === 1 }"
+                >
+                    <PhotoImage
+                        v-for="(image, index) in images"
+                        ref="photosRef"
+                        :key="`photo-roll-image-${image}`"
+                        :image="image"
+                        :parent-height="parentHeight - 10"
+                        :parent-width="parentWidth"
+                        :album-buffer="ALBUM_BUFFER_WIDTH"
+                        @scrolled-to="(...args) => setAlbumDim(index, ...args)"
+                    />
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, useTemplateRef, watch } from 'vue';
+import { computed, reactive, ref, useTemplateRef, watch } from 'vue';
+import { cn } from 'clsx-for-tailwind';
 import PhotoImage, { type ImageDetails, type PhotoDim } from './PhotoImage.vue';
 import { useElementSize, useElementVisibility } from '@vueuse/core';
+import type { ClassValue } from 'clsx';
 
 const ALBUM_BUFFER_WIDTH = 100; // px
 
 type PhotoRollProps = {
     images: ImageDetails[];
+    class?: ClassValue;
 };
 
-defineProps<PhotoRollProps>();
+const props = defineProps<PhotoRollProps>();
+
+const inheritedClasses = computed(() => props.class);
 
 const parentRef = ref<HTMLDivElement>();
 

@@ -7,7 +7,7 @@
             <div class="flex w-full flex-col items-center gap-2 text-center lg:grow lg:gap-4">
                 <TextChain
                     v-for="(para, index) in descriptionPara"
-                    :key="`bio-text-para-${index}`"
+                    :key="`bio-text-para-description-${index}`"
                     :texts="para"
                     class="self-start text-lg text-pretty sm:text-base"
                 />
@@ -37,7 +37,7 @@
             </div>
             <TextChain
                 v-for="(para, index) in aboutParas"
-                :key="`bio-text-para-${index}`"
+                :key="`bio-text-para-about-${index}`"
                 :texts="para"
                 class="text-center"
             />
@@ -89,7 +89,7 @@ const descriptionPara: TextChainPart[][] = [
     ],
     [
         {
-            text: ' I am particularly interested by and enjoy working on/with Virtual Reality, Visualization and Javascript, and am passionate about creating innovative and interactive digital solutions that enhance user experience and satisfaction.',
+            text: ' I am particularly interested in and enjoy working on/with Virtual Reality, Visualization and JavaScript, and am passionate about creating innovative and interactive digital solutions that enhance user experience and satisfaction.',
             link: '',
             bold: false,
         },
@@ -133,7 +133,7 @@ const descriptionPara: TextChainPart[][] = [
     ],
     [
         {
-            text: 'Former Software Developer at Siemens, where I built real-time SCADA web applications, picking up data visualization concepts and skills in building responsive cross-device and cross-browser web UI.',
+            text: 'Former Software Developer at Siemens, where I built real-time SCADA web applications and picked up data visualization concepts and skills in building responsive, cross-device and cross-browser web UIs.',
             link: '',
             bold: false,
         },
@@ -153,7 +153,7 @@ const aboutParas: TextChainPart[][] = [
             bold: false,
         },
         {
-            text: 'Human Computer Interaction',
+            text: 'Human-Computer Interaction',
             link: '',
             bold: true,
         },

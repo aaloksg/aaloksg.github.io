@@ -2,22 +2,22 @@
     <SectionLayout title="Projects">
         <div class="h-full w-full snap-y snap-mandatory overflow-y-auto">
             <SnapSection>
-                <div class="flex h-full flex-col px-4 sm:pb-4 lg:px-20">
+                <div class="flex h-full flex-col">
                     <TextChain
-                        class="dark:bg-muted sticky top-0 w-full bg-white py-1 text-lg font-bold"
+                        class="dark:bg-muted sticky top-0 z-10 w-full bg-white px-4 py-1 text-lg font-bold lg:px-20"
                         :texts="moInVizTitle"
                     />
-                    <div class="flex h-full flex-col justify-center gap-6 sm:gap-2">
-                        <div class="relative h-70 w-full sm:h-auto sm:grow">
-                            <PhotoRoll
-                                :images="[
-                                    {
-                                        src: MoInVizImage,
-                                        alt: 'Visualizing waste generation with Parallel Coordinates on mobile devices',
-                                    },
-                                ]"
-                            />
-                        </div>
+                    <div
+                        class="flex h-full flex-col justify-center gap-6 px-4 pb-4 sm:gap-2 lg:px-20"
+                    >
+                        <PhotoRoll
+                            :images="[
+                                {
+                                    src: MoInVizImage,
+                                    alt: 'Visualizing waste generation with Parallel Coordinates on mobile devices',
+                                },
+                            ]"
+                        />
                         <div class="flex flex-col gap-4">
                             <TextChain :texts="moInVizPara1" class="text-lg sm:text-base" />
                             <TextChain
@@ -31,37 +31,36 @@
             </SnapSection>
             <SnapSection>
                 <div class="flex h-full flex-col justify-center gap-6 px-4 pb-4 sm:gap-2 lg:px-20">
-                    <div class="relative mt-2 h-70 w-full sm:h-auto sm:grow">
-                        <PhotoRoll
-                            :images="[
-                                {
-                                    src: MoInVizQR,
-                                    alt: 'QR code with a link to the visualisation',
-                                },
-                            ]"
-                        />
-                    </div>
+                    <PhotoRoll
+                        :images="[
+                            {
+                                src: MoInVizQR,
+                                alt: 'QR code with a link to the visualization',
+                            },
+                        ]"
+                    />
                     <TextChain :texts="moInVizPara2" class="text-lg sm:text-base" />
                 </div>
             </SnapSection>
 
             <SnapSection>
-                <div class="flex h-full flex-col px-4 pb-4 lg:px-20">
+                <div class="flex h-full flex-col">
                     <TextChain
-                        class="dark:bg-muted sticky top-0 w-full bg-white py-1 text-lg font-bold"
+                        class="dark:bg-muted sticky top-0 z-10 w-full bg-white px-4 py-1 text-lg font-bold lg:px-20"
                         :texts="dataVizTitle"
                     />
-                    <div class="flex h-full flex-col justify-center gap-6 sm:gap-2">
-                        <div class="relative h-90 w-full sm:h-auto sm:grow">
-                            <PhotoRoll
-                                :images="[
-                                    {
-                                        src: F1VizImage,
-                                        alt: 'A visualisation of the trajectory of the 2004 Monaco Grand Prix',
-                                    },
-                                ]"
-                            />
-                        </div>
+                    <div
+                        class="flex h-full flex-col justify-center gap-6 px-4 pb-4 sm:gap-2 lg:px-20"
+                    >
+                        <PhotoRoll
+                            :images="[
+                                {
+                                    src: F1VizImage,
+                                    alt: 'A visualization of the trajectory of the 2004 Monaco Grand Prix',
+                                },
+                            ]"
+                            class="h-90"
+                        />
                         <div class="flex flex-col gap-4 text-justify">
                             <TextChain :texts="dataVizPara" class="text-lg sm:text-base" />
                         </div>
@@ -69,22 +68,22 @@
                 </div>
             </SnapSection>
             <SnapSection>
-                <div class="flex h-full flex-col gap-4 px-4 pb-4 lg:px-20">
+                <div class="flex h-full flex-col gap-4">
                     <TextChain
-                        class="dark:bg-muted sticky top-0 w-full bg-white py-1 text-lg font-bold"
+                        class="dark:bg-muted sticky top-0 z-10 w-full bg-white px-4 py-1 text-lg font-bold lg:px-20"
                         :texts="techInHomeTitle"
                     />
-                    <div class="flex grow flex-col justify-center gap-6 sm:gap-2">
-                        <div class="relative h-70 w-full sm:h-auto sm:grow">
-                            <PhotoRoll
-                                :images="[
-                                    {
-                                        src: SpiritualityPoster,
-                                        alt: 'A poster summarising the study',
-                                    },
-                                ]"
-                            />
-                        </div>
+                    <div
+                        class="flex grow flex-col justify-center gap-6 px-4 pb-4 sm:gap-2 lg:px-20"
+                    >
+                        <PhotoRoll
+                            :images="[
+                                {
+                                    src: SpiritualityPoster,
+                                    alt: 'A poster summarising the study',
+                                },
+                            ]"
+                        />
 
                         <div class="flex flex-col gap-4 text-justify">
                             <TextChain :texts="techInHomePara" class="text-lg sm:text-base" />
@@ -128,14 +127,14 @@ const moInVizPara1: TextChainPart[] = [
 ];
 const moInVizList: TextChainPart[] = [
     {
-        text: 'using large interactable areas and staggered handles to combat fat finger problems',
+        text: 'using large interactive/touchable areas and staggered handles to combat fat finger problems',
         link: '',
         bold: false,
         italic: false,
         type: 'li',
     },
     {
-        text: 'using tabs instead of menu buttons and using portrait mode to use space efficiently',
+        text: 'using tabs instead of menu buttons and using portrait mode to utilize space efficiently',
         link: '',
         bold: false,
         italic: false,
@@ -170,7 +169,7 @@ const moInVizPara2: TextChainPart[] = [
         italic: false,
     },
     {
-        text: 'Check it out with a mobile browser here',
+        text: 'Check it out on a mobile browser here',
         link: 'https://aaloksg.github.io/moin/',
         bold: false,
         italic: true,
@@ -240,7 +239,7 @@ const techInHomePara: TextChainPart[] = [
         italic: false,
     },
     {
-        text: 'We collected in-depth information that can guide future designs for spirituality-relevant applications.',
+        text: 'We collected in-depth information that can guide future designs for spirituality-related applications.',
         link: '',
         bold: false,
         italic: false,

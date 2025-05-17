@@ -98,7 +98,7 @@ const paras: TextChainPart[][] = [
             bold: false,
         },
         {
-            text: 'Human Computer Interaction',
+            text: 'Human-Computer Interaction',
             link: '',
             bold: true,
         },
@@ -172,7 +172,7 @@ const previousExperiences: TextChainPart[][] = [
     ],
     [
         {
-            text: 'Former Software Developer at Siemens, where I built real-time SCADA web applications, picking up data visualization concepts and skills in building responsive cross-device and cross-browser web UI.',
+            text: 'Former Software Developer at Siemens, where I built real-time SCADA web applications and picked up data visualization concepts and skills in building responsive, cross-device and cross-browser web UIs.',
             link: '',
             bold: false,
         },

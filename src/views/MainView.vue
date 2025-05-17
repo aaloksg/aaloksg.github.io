@@ -1,31 +1,31 @@
 <template>
-    <div class="flex h-full w-full flex-col overflow-hidden bg-white dark:bg-muted">
+    <div class="dark:bg-muted flex h-full w-full flex-col overflow-hidden bg-white">
         <div
             v-if="isLargeScreen"
-            class="sticky top-0 flex w-full items-center justify-stretch bg-primary text-lg"
+            class="bg-primary sticky top-0 flex w-full items-center justify-stretch text-lg"
         >
             <nav class="flex w-full items-center justify-stretch">
                 <RouterLink
                     v-for="button in navMenuButtons"
-                    :key="`nave-menu-button-${button.text}`"
+                    :key="`nav-menu-button-${button.text}`"
                     :to="button.path"
                     class="grow"
                 >
                     <ButtonItem
                         :variant="button.path === path ? 'none' : 'none'"
-                        class="group relative h-full w-full whitespace-nowrap p-3 text-center"
+                        class="group relative h-full w-full p-3 text-center whitespace-nowrap"
                         :class="[
                             button.path === path
                                 ? clsx(
-                                      'rounded-t-2xl pb-2 pt-4 text-xl font-bold text-primary',
-                                      'border-t-8 border-t-primary',
+                                      'text-primary rounded-t-2xl pt-4 pb-2 text-xl font-bold',
+                                      'border-t-primary border-t-8',
                                       'bg-white',
                                       'dark:bg-muted'
                                   )
                                 : clsx(
                                       'font-light text-white',
                                       'enabled:hover:border-t-8',
-                                      'border-t-white dark:border-t-muted'
+                                      'dark:border-t-muted border-t-white'
                                   ),
                         ]"
                         :disabled="button.path === path"
@@ -52,7 +52,7 @@
             v-else
             :collapsed="menuCollapsed"
             side="left"
-            class="pointer-events-auto absolute left-0 top-0 z-50 max-h-dvh transition"
+            class="pointer-events-auto absolute top-0 left-0 z-50 max-h-dvh transition"
             :class="[menuCollapsed ? 'w-0' : 'w-40']"
             @toggle-collapsed="menuCollapsed = !menuCollapsed"
             @close="menuCollapsed = true"
@@ -61,19 +61,19 @@
                 <RouterLink
                     class="w-full"
                     v-for="button in navMenuButtons"
-                    :key="`nave-menu-button-${button.text}`"
+                    :key="`nav-menu-button-${button.text}`"
                     :to="button.path"
                 >
                     <ButtonItem
                         variant="none"
-                        class="relative w-full p-4 text-center text-white enabled:hover:bg-white enabled:hover:text-primary dark:enabled:hover:bg-muted"
+                        class="enabled:hover:text-primary dark:enabled:hover:bg-muted relative w-full p-4 text-center text-white enabled:hover:bg-white"
                         :disabled="button.path === path"
                         @click="menuCollapsed = true"
                     >
                         {{ button.text }}
                         <div
                             v-if="button.path === path"
-                            class="absolute right-2 top-1/2 h-2 w-2 -translate-y-1/2 animate-pulse rounded-full bg-white"
+                            class="absolute top-1/2 right-2 h-2 w-2 -translate-y-1/2 animate-pulse rounded-full bg-white"
                         />
                     </ButtonItem>
                 </RouterLink>
