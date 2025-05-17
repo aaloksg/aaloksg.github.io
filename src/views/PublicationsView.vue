@@ -2,7 +2,7 @@
     <SectionLayout title="Publication">
         <div class="flex flex-col gap-8 overflow-y-auto px-4 pb-8 lg:px-20">
             <TextChain
-                class="sticky top-0 w-full bg-white py-1 text-lg dark:bg-muted"
+                class="dark:bg-muted sticky top-0 w-full bg-white py-1 text-lg"
                 :texts="publicationPara"
             />
 
@@ -10,8 +10,18 @@
                 <div class="flex w-full flex-col gap-4 sm:flex-row-reverse sm:items-start sm:pt-2">
                     <ImageModaller
                         :src="SimultaneousTechImage"
-                        caption="A still of the Simultaneous technique in use"
-                    />
+                        alt="A still of the Simultaneous technique in use"
+                    >
+                        <template #default="{ showModal }">
+                            <img
+                                ref="imageRef"
+                                class="shrink-0 cursor-pointer rounded-lg object-contain"
+                                :src="SimultaneousTechImage"
+                                alt="A still of the Simultaneous technique in use"
+                                @click="showModal"
+                            />
+                        </template>
+                    </ImageModaller>
                     <div class="flex shrink flex-col gap-4">
                         <TextChain
                             v-for="(para, index) in paras"
@@ -23,7 +33,7 @@
                 </div>
 
                 <div class="flex w-full flex-col gap-4 sm:flex-row sm:items-start sm:pt-2">
-                    <div class="aspect-video h-auto w-90vw grow sm:h-40 md:h-60 lg:h-80">
+                    <div class="aspect-video h-auto w-[90vw] grow sm:h-40 md:h-60 lg:h-80">
                         <iframe
                             class="h-full w-full"
                             width="560"
@@ -52,7 +62,7 @@
 
 <script setup lang="ts">
 import TextChain, { type TextChainPart } from '@/components/TextChain.vue';
-import ImageModaller from '@/components/ImageModaller.vue';
+import ImageModaller from '@/components/photo-reel/ImageModaller.vue';
 import SectionLayout from './layout/SectionLayout.vue';
 
 import SimultaneousTechImage from '@/assets/images/SimultaneousTech.png';

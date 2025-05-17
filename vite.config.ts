@@ -7,11 +7,14 @@ import vueDevTools from 'vite-plugin-vue-devtools';
 import svgPlugin from 'vite-svg-loader';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
+import tailwindcss from '@tailwindcss/vite';
+
 // https://vite.dev/config/
 export default defineConfig({
     base: '/',
     plugins: [
         vue(),
+        tailwindcss(),
         viteStaticCopy({
             targets: [
                 {

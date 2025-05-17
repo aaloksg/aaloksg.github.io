@@ -1,132 +1,115 @@
 <template>
     <SectionLayout title="Projects">
-        <div class="flex flex-col gap-8 overflow-y-auto px-4 pb-8 lg:px-20">
-            <div ref="moInVizBody" class="flex flex-col gap-4">
-                <TextChain
-                    class="text-lg"
-                    :class="[
-                        currentStickyTitle === 'MoInViz'
-                            ? 'sticky top-0 w-full bg-white py-1 dark:bg-muted'
-                            : '',
-                    ]"
-                    :texts="moInVizTitle"
-                />
-                <div class="flex flex-col gap-4 sm:flex-row-reverse">
-                    <ImageModaller
-                        :src="MoInVizImage"
-                        caption="Visualizing waste generation with Parallel Coordinates on mobile devices"
+        <div class="h-full w-full snap-y snap-mandatory overflow-y-auto">
+            <SnapSection>
+                <div class="flex h-full flex-col px-4 sm:pb-4 lg:px-20">
+                    <TextChain
+                        class="dark:bg-muted sticky top-0 w-full bg-white py-1 text-lg font-bold"
+                        :texts="moInVizTitle"
                     />
-
-                    <div class="flex flex-col gap-4 text-justify">
-                        <TextChain :texts="moInVizPara1" class="text-lg sm:text-base" />
-                        <TextChain
-                            as="ul"
-                            :texts="moInVizList"
-                            class="list-disc pl-4 text-base sm:text-sm"
-                        />
-                        <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
-                            <TextChain :texts="moInVizPara2" class="text-lg sm:text-base" />
-                            <ImageModaller :src="MoInVizQR" size="small" center-vertically />
+                    <div class="flex h-full flex-col justify-center gap-6 sm:gap-2">
+                        <div class="relative h-70 w-full sm:h-auto sm:grow">
+                            <PhotoRoll
+                                :images="[
+                                    {
+                                        src: MoInVizImage,
+                                        alt: 'Visualizing waste generation with Parallel Coordinates on mobile devices',
+                                    },
+                                ]"
+                            />
+                        </div>
+                        <div class="flex flex-col gap-4">
+                            <TextChain :texts="moInVizPara1" class="text-lg sm:text-base" />
+                            <TextChain
+                                as="ul"
+                                :texts="moInVizList"
+                                class="flex list-disc flex-col gap-2 pl-4 text-base sm:text-sm"
+                            />
                         </div>
                     </div>
                 </div>
-            </div>
+            </SnapSection>
+            <SnapSection>
+                <div class="flex h-full flex-col justify-center gap-6 px-4 pb-4 sm:gap-2 lg:px-20">
+                    <div class="relative mt-2 h-70 w-full sm:h-auto sm:grow">
+                        <PhotoRoll
+                            :images="[
+                                {
+                                    src: MoInVizQR,
+                                    alt: 'QR code with a link to the visualisation',
+                                },
+                            ]"
+                        />
+                    </div>
+                    <TextChain :texts="moInVizPara2" class="text-lg sm:text-base" />
+                </div>
+            </SnapSection>
 
-            <div ref="dataVizBody" class="flex flex-col gap-4">
-                <TextChain
-                    class="text-lg"
-                    :class="[
-                        currentStickyTitle === 'DataViz'
-                            ? 'sticky top-0 w-full bg-white py-1 dark:bg-muted'
-                            : '',
-                    ]"
-                    :texts="dataVizTitle"
-                />
-                <div class="flex flex-col gap-4 sm:flex-row">
-                    <ImageModaller
-                        :src="F1VizImage"
-                        center-vertically
-                        caption="A visualisation of the trajectory of the 2004 Monaco Grand Prix"
+            <SnapSection>
+                <div class="flex h-full flex-col px-4 pb-4 lg:px-20">
+                    <TextChain
+                        class="dark:bg-muted sticky top-0 w-full bg-white py-1 text-lg font-bold"
+                        :texts="dataVizTitle"
                     />
-                    <div class="flex flex-col gap-4 text-justify">
-                        <TextChain :texts="dataVizPara" class="text-lg sm:text-base" />
+                    <div class="flex h-full flex-col justify-center gap-6 sm:gap-2">
+                        <div class="relative h-90 w-full sm:h-auto sm:grow">
+                            <PhotoRoll
+                                :images="[
+                                    {
+                                        src: F1VizImage,
+                                        alt: 'A visualisation of the trajectory of the 2004 Monaco Grand Prix',
+                                    },
+                                ]"
+                            />
+                        </div>
+                        <div class="flex flex-col gap-4 text-justify">
+                            <TextChain :texts="dataVizPara" class="text-lg sm:text-base" />
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div ref="techInHomeBody" class="flex flex-col gap-4">
-                <TextChain
-                    class="text-lg"
-                    :class="[
-                        currentStickyTitle === 'TechInHome'
-                            ? 'sticky -top-0.5 w-full bg-white py-1 dark:bg-muted'
-                            : '',
-                    ]"
-                    :texts="techInHomeTitle"
-                />
-                <div class="flex flex-col gap-4 sm:flex-row-reverse">
-                    <ImageModaller
-                        :src="SpiritualityPoster"
-                        caption="A poster summarising the study"
+            </SnapSection>
+            <SnapSection>
+                <div class="flex h-full flex-col gap-4 px-4 pb-4 lg:px-20">
+                    <TextChain
+                        class="dark:bg-muted sticky top-0 w-full bg-white py-1 text-lg font-bold"
+                        :texts="techInHomeTitle"
                     />
+                    <div class="flex grow flex-col justify-center gap-6 sm:gap-2">
+                        <div class="relative h-70 w-full sm:h-auto sm:grow">
+                            <PhotoRoll
+                                :images="[
+                                    {
+                                        src: SpiritualityPoster,
+                                        alt: 'A poster summarising the study',
+                                    },
+                                ]"
+                            />
+                        </div>
 
-                    <div class="flex flex-col gap-4 text-justify">
-                        <TextChain :texts="techInHomePara" class="text-lg sm:text-base" />
+                        <div class="flex flex-col gap-4 text-justify">
+                            <TextChain :texts="techInHomePara" class="text-lg sm:text-base" />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </SnapSection>
         </div>
     </SectionLayout>
 </template>
 
 <script setup lang="ts">
 import TextChain, { type TextChainPart } from '@/components/TextChain.vue';
-import ImageModaller from '@/components/ImageModaller.vue';
 import SectionLayout from './layout/SectionLayout.vue';
-import { computed, ref, type Ref } from 'vue';
-import { useElementVisibility } from '@vueuse/core';
 
 import MoInVizImage from '@/assets/images/MoInViz-Waste-Paracoords.png';
 import MoInVizQR from '@/assets/images/qrcode_moinviz.png';
 import F1VizImage from '@/assets/images/F1Viz.png';
 import SpiritualityPoster from '@/assets/images/ModernTech-Spirituality-Poster.png';
+import SnapSection from './layout/SnapSection.vue';
+import PhotoRoll from '@/components/photo-reel/PhotoRoll.vue';
 
 defineOptions({
     name: 'PublicationsSection',
 });
-
-type Titles = 'MoInViz' | 'DataViz' | 'TechInHome';
-type ItemInView = {
-    title: Titles;
-    elementRef: Ref<HTMLElement | undefined>;
-    visibility: Ref<boolean>;
-};
-
-const moInVizBody = ref<HTMLElement>();
-const dataVizBody = ref<HTMLElement>();
-const techInHomeBody = ref<HTMLElement>();
-
-const projectItems: ItemInView[] = [
-    {
-        title: 'MoInViz',
-        elementRef: moInVizBody,
-        visibility: useElementVisibility(moInVizBody),
-    },
-    {
-        title: 'DataViz',
-        elementRef: dataVizBody,
-        visibility: useElementVisibility(dataVizBody),
-    },
-    {
-        title: 'TechInHome',
-        elementRef: techInHomeBody,
-        visibility: useElementVisibility(techInHomeBody),
-    },
-];
-
-const currentStickyTitle = computed(
-    () => projectItems.find((item) => item.visibility.value)?.title
-);
 
 const moInVizTitle: TextChainPart[] = [
     {

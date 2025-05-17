@@ -3,8 +3,8 @@
         class="h-auto max-h-full cursor-pointer rounded-md object-cover text-center align-bottom sm:w-auto"
         :class="{
             'self-center': centerVertically,
-            'w-90vw sm:h-64 lg:h-80': size === 'medium',
-            'w-50vw sm:h-40 lg:h-48': size === 'small',
+            'w-[90vw] sm:h-64 lg:h-80': size === 'medium',
+            'w-[50vw] sm:h-40 lg:h-48': size === 'small',
         }"
         :src="src"
         @click.stop="onClick"
@@ -12,7 +12,7 @@
     <Teleport to="#modal-container">
         <div
             v-if="open"
-            class="fixed left-0 top-0 z-modal h-screen w-screen bg-black/80"
+            class="fixed top-0 left-0 z-1000 h-screen w-screen bg-black/80"
             v-on:click="open = false"
         >
             <div class="flex h-full w-full flex-col items-center justify-center">
@@ -42,12 +42,12 @@
                 </Transition>
                 <MDIcon
                     :icon="CloseIcon"
-                    class="fixed right-4 top-4 h-4 w-4 cursor-pointer text-light hover:opacity-60"
+                    class="text-light fixed top-4 right-4 h-4 w-4 cursor-pointer hover:opacity-60"
                     v-on:click.stop="open = false"
                 />
                 <MDIcon
                     :icon="isRotated ? RotateLeftIcon : RotateRightIcon"
-                    class="fixed bottom-4 right-4 h-4 w-4 cursor-pointer text-light hover:opacity-60"
+                    class="text-light fixed right-4 bottom-4 h-4 w-4 cursor-pointer hover:opacity-60"
                     v-on:click.stop="isRotated = !isRotated"
                 />
             </div>

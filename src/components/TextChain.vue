@@ -1,5 +1,5 @@
 <template>
-    <component :is="as" class="leading-6 text-secondary dark:text-white">
+    <component :is="as" :class="cn('text-secondary leading-6 dark:text-white', inheritedClasses)">
         <template v-for="(textPart, index) in texts" :key="`text-${index}`">
             <HyperlinkText
                 v-if="textPart.link"
@@ -20,7 +20,10 @@
 </template>
 
 <script setup lang="ts">
+import type { ClassValue } from 'clsx';
 import HyperlinkText from './HyperlinkText.vue';
+import { cn } from 'clsx-for-tailwind';
+import { computed } from 'vue';
 
 type HtmlElementTagNames = keyof HTMLElementTagNameMap;
 
@@ -38,9 +41,12 @@ export type TextChainPart = {
 type TextChainProps = {
     texts: TextChainPart[];
     as?: HtmlElementTagNames;
+    class?: ClassValue;
 };
 
-withDefaults(defineProps<TextChainProps>(), {
+const props = withDefaults(defineProps<TextChainProps>(), {
     as: 'p',
 });
+
+const inheritedClasses = computed(() => props.class);
 </script>

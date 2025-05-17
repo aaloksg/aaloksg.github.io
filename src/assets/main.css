@@ -1,13 +1,11 @@
-@import './base.css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
 
 body {
     background-color: #fff;
     font-family: Bahnschrift;
-    color: #c45911;
     margin: 0;
+    box-sizing: border-box;
 
     /* Foreground, Background */
     scrollbar-color: #c45911 #c4591166;
@@ -25,4 +23,23 @@ body {
         background: #c4591122;
         border-radius: 100px;
     }
+}
+
+@theme {
+    --color-primary: #c45911;
+    --color-muted: #424242;
+    --color-muted-inverse: #ffb786;
+    --color-light: #bcbcbc;
+    --color-accent: #ff8738;
+    --color-dark: #424242;
+    --color-secondary: #616161;
+
+    --breakpoint-xs: 480px;
+
+    --text-relative-xxs: 0.75vw;
+    --text-relative-xs: 1vw;
+    --text-relative-sm: 2vw;
+    --text-relative-base: 3.5vw;
+    --text-relative-lg: 3.8vw;
+    --text-relative-xl: 4.5vw;
 }

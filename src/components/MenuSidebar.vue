@@ -1,25 +1,25 @@
 <template>
     <div
         ref="menuRef"
-        class="flex h-dvh select-none flex-col bg-primary/90 shadow-md transition-all duration-200"
+        class="bg-primary/90 flex h-dvh flex-col shadow-md transition-all duration-200 select-none"
     >
         <div
             class="relative"
             :class="{
-                '-translate-x-40vw': side === 'left' && collapsed,
+                '-translate-x-[40vw]': side === 'left' && collapsed,
                 'translate-x-full': side === 'right' && collapsed,
             }"
         >
             <div class="mt-12">
                 <slot />
             </div>
-            <div v-if="$slots['top-right-fixed']" class="absolute right-0 top-1">
+            <div v-if="$slots['top-right-fixed']" class="absolute top-1 right-0">
                 <slot name="top-right-fixed" />
             </div>
         </div>
 
         <ButtonItem
-            class="absolute left-0 top-1 p-3"
+            class="absolute top-1 left-0 p-3"
             :variant="collapsed ? 'ghost-inverse' : 'ghost'"
             @click="emits('toggleCollapsed')"
             :class="[

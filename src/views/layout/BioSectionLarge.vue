@@ -3,19 +3,19 @@
         <div
             class="flex h-full w-full flex-col items-center gap-4 pr-4 text-center lg:gap-16 lg:pr-8"
         >
-            <h1 class="text-3xl font-bold lg:text-4xl">Aalok Shashidhar Gokhale</h1>
+            <h1 class="text-primary text-3xl font-bold lg:text-4xl">Aalok Shashidhar Gokhale</h1>
             <div class="flex w-full flex-col items-center gap-2 text-center lg:grow lg:gap-4">
                 <TextChain
                     v-for="(para, index) in descriptionPara"
                     :key="`bio-text-para-${index}`"
                     :texts="para"
-                    class="self-start text-pretty text-lg leading-8 sm:text-base"
+                    class="self-start text-lg text-pretty sm:text-base"
                 />
             </div>
         </div>
         <div class="flex w-full flex-col items-center gap-4 pl-4">
             <img
-                class="aspect-square h-64 rounded-full border-4 border-solid border-primary object-cover align-bottom"
+                class="border-primary aspect-square h-64 rounded-full border-4 border-solid object-cover align-bottom"
                 src="../../assets/images/bio-image.png"
             />
             <div class="flex items-center justify-center gap-10 text-center">

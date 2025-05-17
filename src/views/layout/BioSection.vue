@@ -1,7 +1,7 @@
 <template>
     <SectionLayout class="justify-between text-center">
         <template #title>
-            <h1 class="align-text-top text-3xl font-bold">Aalok Shashidhar Gokhale</h1>
+            <h1 class="text-primary align-text-top text-3xl font-bold">Aalok Shashidhar Gokhale</h1>
         </template>
         <template #default>
             <div
@@ -36,9 +36,9 @@
                             <MDIcon :icon="InstagramIcon" class="h-10 w-10 text-inherit" />
                         </HyperlinkText>
                     </div>
-                    <div class="max-h-52 w-40vw">
+                    <div class="max-h-52 w-[40vw]">
                         <img
-                            class="h-auto max-h-full rounded-full border-4 border-solid border-primary object-cover align-bottom"
+                            class="border-primary h-auto max-h-full rounded-full border-4 border-solid object-cover align-bottom"
                             src="../../assets/images/bio-image.png"
                         />
                     </div>
